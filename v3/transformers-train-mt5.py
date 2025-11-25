@@ -154,6 +154,8 @@ model.print_trainable_parameters()
 
 # --- 5. Training Arguments ---
 training_args = Seq2SeqTrainingArguments(
+    fsdp_config="./default_config.json",
+    fsdp="full_shard",
     output_dir="./checkpoints/gec_german_mt5_optimized",
     eval_strategy="epoch",
     save_strategy="epoch",
