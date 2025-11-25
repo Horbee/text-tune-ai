@@ -7,6 +7,7 @@ requires-python = ">=3.14"
 dependencies = [
     "datasets>=4.4.1",
     "evaluate>=0.4.6",
+    "hf-transfer>=0.1.9",
     "numpy>=2.3.5",
     "pandas>=2.3.3",
     "peft>=0.18.0",
