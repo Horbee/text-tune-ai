@@ -52,8 +52,8 @@ df = pd.read_json(
 logger.info(f"Total samples: {len(df)}")
 
 train_df, val_df = train_test_split(
-    df, test_size=0.15, random_state=SEED
-)  # 85/15 split
+    df, test_size=0.02, random_state=SEED
+)  # 98/2 split
 logger.info(f"Train: {len(train_df)}, Val: {len(val_df)}")
 
 dataset = DatasetDict(
@@ -154,14 +154,14 @@ model.print_trainable_parameters()
 
 # --- 5. Training Arguments ---
 training_args = Seq2SeqTrainingArguments(
-    fsdp_config="./default_config.json",
-    fsdp="full_shard",
     output_dir="./checkpoints/gec_german_mt5_optimized",
-    eval_strategy="epoch",
-    save_strategy="epoch",
+    eval_strategy="steps",
+    eval_steps=10000,
+    save_strategy="steps",
+    save_steps=10000,
     learning_rate=LEARNING_RATE,
     per_device_train_batch_size=BATCH_SIZE,
-    per_device_eval_batch_size=BATCH_SIZE * 2,  # Can use larger for eval
+    per_device_eval_batch_size=BATCH_SIZE * 4,  # Can use larger for eval
     gradient_accumulation_steps=GRADIENT_ACCUMULATION_STEPS,
     warmup_ratio=WARMUP_RATIO,
     weight_decay=0.01,
@@ -175,7 +175,7 @@ training_args = Seq2SeqTrainingArguments(
     greater_is_better=True,
     predict_with_generate=True,
     generation_max_length=MAX_LENGTH,
-    generation_num_beams=2,  # Lightweight beam search
+    generation_num_beams=1,  # Lightweight beam search
     bf16=(DEVICE == "cuda" and torch.cuda.is_bf16_supported()),  # Use bf16 if available
     fp16=False,
     optim="adamw_torch",
@@ -201,6 +201,7 @@ trainer = Seq2SeqTrainer(
 # --- 7. Train ---
 logger.info("Starting training...")
 trainer.train()
+# trainer.evaluate()  # For testing purposes, run evaluation only
 
 # --- 8. Save Model ---
 output_dir = os.path.join(os.path.dirname(__file__), "models/gec_german_mt5_optimized")

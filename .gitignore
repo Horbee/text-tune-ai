@@ -14,3 +14,5 @@ wheels/
 **/data/
 **/models/
 **/checkpoints/
+
+.DS_Store
