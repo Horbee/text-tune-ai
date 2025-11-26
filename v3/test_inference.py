@@ -1,19 +1,18 @@
 # Test script to verify model inference and BLEU calculation
 # Run this after training to test your model
 
-from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
+from transformers import T5Tokenizer, MT5ForConditionalGeneration
 from peft import PeftModel
 import evaluate
 import os
 
-MODEL_PATH = os.path.join(os.path.dirname(__file__), 'models', 'gec_german_mt5_v3')
+MODEL_PATH = os.path.join(os.path.dirname(__file__), 'models', 'gec_german_mt5_lora')
 BASE_MODEL = "google/mt5-base"
-PREFIX = "korrigiere: "
 
 # Load model and tokenizer
 print("Loading model...")
-tokenizer = AutoTokenizer.from_pretrained(BASE_MODEL, use_fast=False, legacy=False)
-base_model = AutoModelForSeq2SeqLM.from_pretrained(BASE_MODEL)
+tokenizer = T5Tokenizer.from_pretrained(BASE_MODEL, use_fast=False, legacy=False)
+base_model = MT5ForConditionalGeneration.from_pretrained(BASE_MODEL)
 model = PeftModel.from_pretrained(base_model, MODEL_PATH)
 model.eval()
 
@@ -43,7 +42,7 @@ all_preds = []
 all_refs = []
 
 for i, test in enumerate(test_cases, 1):
-    input_text = PREFIX + test["input"]
+    input_text = test["input"]
     inputs = tokenizer(input_text, return_tensors="pt", max_length=128, truncation=True)
     
     outputs = model.generate(
