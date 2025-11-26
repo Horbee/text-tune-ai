@@ -32,7 +32,7 @@ BATCH_SIZE = 16  # Increased for efficiency
 GRADIENT_ACCUMULATION_STEPS = 2  # Effective batch = 32
 LEARNING_RATE = 5e-4  # Conservative for stability
 WARMUP_RATIO = 0.15  # Extended warmup
-NUM_EPOCHS = 10
+NUM_EPOCHS = 5  # Sufficient for LoRA; early stopping will handle it
 SEED = 42
 
 # Check GPU availability
@@ -155,10 +155,8 @@ model.print_trainable_parameters()
 # --- 5. Training Arguments ---
 training_args = Seq2SeqTrainingArguments(
     output_dir="./checkpoints/gec_german_mt5_optimized",
-    eval_strategy="steps",
-    eval_steps=10000,
-    save_strategy="steps",
-    save_steps=10000,
+    eval_strategy="epoch",
+    save_strategy="epoch",
     learning_rate=LEARNING_RATE,
     per_device_train_batch_size=BATCH_SIZE,
     per_device_eval_batch_size=BATCH_SIZE * 4,  # Can use larger for eval
@@ -169,7 +167,7 @@ training_args = Seq2SeqTrainingArguments(
     num_train_epochs=NUM_EPOCHS,
     logging_steps=50,
     logging_dir="./logs",
-    save_total_limit=3,
+    save_total_limit=5,
     load_best_model_at_end=True,
     metric_for_best_model="bleu",
     greater_is_better=True,
