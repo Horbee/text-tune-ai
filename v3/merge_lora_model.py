@@ -1,5 +1,5 @@
 import torch
-from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
+from transformers import T5Tokenizer, MT5ForConditionalGeneration
 from peft import PeftModel
 
 # --- Configuration ---
@@ -16,7 +16,7 @@ def load_lora_model():
     # Load the original heavy model
     # Note: We load it in 8-bit or half precision if possible to save memory,
     # but strictly speaking, standard float32 is safest for inference compatibility.
-    base_model = AutoModelForSeq2SeqLM.from_pretrained(
+    base_model = MT5ForConditionalGeneration.from_pretrained(
         BASE_MODEL_NAME,
         dtype=torch.float16 if torch.cuda.is_available() else torch.float32
     )
@@ -33,7 +33,7 @@ def load_lora_model():
     
     print("3. Loading Tokenizer...")
     # Tokenizer is usually the same as the base model
-    tokenizer = AutoTokenizer.from_pretrained(BASE_MODEL_NAME, legacy=False)
+    tokenizer = T5Tokenizer.from_pretrained(BASE_MODEL_NAME, legacy=False, use_fast=False)
     
     return model, tokenizer
 

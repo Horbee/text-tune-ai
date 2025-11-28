@@ -4,7 +4,7 @@ Optimized mT5 training script for German Grammar Error Correction (GEC).
 Includes memory optimization, mixed precision, gradient accumulation, and better monitoring.
 """
 
-from datasets import Dataset, DatasetDict
+from datasets import load_dataset
 from transformers import (
     T5Tokenizer,
     MT5ForConditionalGeneration,
@@ -14,16 +14,30 @@ from transformers import (
 )
 import evaluate
 import numpy as np
-from sklearn.model_selection import train_test_split
 from peft import LoraConfig, get_peft_model, TaskType
+from accelerate import Accelerator
 import os
-import pandas as pd
 import torch
 import logging
 
-# --- Logging Setup ---
-logging.basicConfig(level=logging.INFO)
-logger = logging.getLogger(__name__)
+class MyLogger:
+    def __init__(self, accelerator=None):
+        self.accelerator = accelerator
+        self.logger = logging.getLogger(__name__)
+        if accelerator.is_main_process:
+            logging.basicConfig(level=logging.INFO)
+        else:
+            # Reduce logging level on non-main ranks
+            logging.basicConfig(level=logging.ERROR)
+    
+    def info(self, message):
+        if self.accelerator.is_main_process:
+            self.logger.info(message)
+
+
+# --- Accelerate & Logging Setup ---
+accelerator = Accelerator()
+logger = MyLogger(accelerator)
 
 # --- Configuration ---
 MODEL_CHECKPOINT = "google/mt5-base"
@@ -37,38 +51,28 @@ SEED = 42
 
 # Check GPU availability
 DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
-logger.info(f"Using device: {DEVICE}")
-if DEVICE == "cuda":
-    logger.info(f"GPU: {torch.cuda.get_device_name(0)}")
-    logger.info(f"GPU Memory: {torch.cuda.get_device_properties(0).total_memory / 1e9:.2f} GB")
+if accelerator.is_main_process:
+    logger.info(f"Using device: {DEVICE}")
+    if DEVICE == "cuda":
+        try:
+            logger.info(f"GPU: {torch.cuda.get_device_name(0)}")
+            logger.info(f"GPU Memory: {torch.cuda.get_device_properties(0).total_memory / 1e9:.2f} GB")
+        except Exception:
+            # In multi-process setups, get_device_name may race; ignore safely
+            pass
 
 # --- 1. Load & Split Dataset ---
 logger.info("Loading dataset...")
-df = pd.read_json(
-    # os.path.join(os.path.dirname(__file__), "data/chapter1-eval-v4.jsonl"),
-    os.path.join(os.path.dirname(__file__), "data/news-data-train-v4.jsonl"),
-    lines=True
-)
-logger.info(f"Total samples: {len(df)}")
-
-train_df, val_df = train_test_split(
-    df, test_size=0.02, random_state=SEED
-)  # 98/2 split
-logger.info(f"Train: {len(train_df)}, Val: {len(val_df)}")
-
-dataset = DatasetDict(
-    {
-        "train": Dataset.from_pandas(train_df).remove_columns(["__index_level_0__"]),
-        "validation": Dataset.from_pandas(val_df).remove_columns(["__index_level_0__"]),
-    }
-)
+train_path = os.path.join(os.path.dirname(__file__), "data/news-data-v4-train.jsonl")
+val_path = os.path.join(os.path.dirname(__file__), "data/news-data-v4-eval.jsonl")
+dataset = load_dataset('json', data_files={'train': train_path, 'validation': val_path})
+logger.info(f"Train samples: {len(dataset['train'])}, Val samples: {len(dataset['validation'])}")
 
 # --- 2. Tokenizer & Preprocessing ---
 logger.info("Loading tokenizer...")
 tokenizer = T5Tokenizer.from_pretrained(
     MODEL_CHECKPOINT, use_fast=False, legacy=False, model_max_length=MAX_LENGTH
 )
-
 
 def preprocess_function(examples):
     inputs = examples["de_corrupted"]
@@ -89,7 +93,6 @@ def preprocess_function(examples):
     model_inputs["labels"] = labels["input_ids"]
     return model_inputs
 
-
 logger.info("Tokenizing dataset...")
 tokenized_datasets = dataset.map(
     preprocess_function, batched=True, batch_size=32, remove_columns=dataset["train"].column_names
@@ -97,8 +100,6 @@ tokenized_datasets = dataset.map(
 
 # --- 3. Metrics (BLEU) ---
 metric = evaluate.load("sacrebleu")
-
-
 def compute_metrics(eval_preds):
     preds, labels = eval_preds
     if isinstance(preds, tuple):
@@ -150,7 +151,8 @@ peft_config = LoraConfig(
 )
 
 model = get_peft_model(model, peft_config)
-model.print_trainable_parameters()
+if accelerator.is_main_process:
+    model.print_trainable_parameters()
 
 # --- 5. Training Arguments ---
 training_args = Seq2SeqTrainingArguments(
@@ -181,6 +183,8 @@ training_args = Seq2SeqTrainingArguments(
     dataloader_num_workers=0,  # Parallel data loading
     dataloader_pin_memory=False,
     push_to_hub=False,
+    report_to=["none"],  # Avoid multi-process logging backends unless configured
+    ddp_find_unused_parameters=False,  # Safer defaults with accelerate
 )
 
 # --- 6. Data Collator & Trainer ---
@@ -203,10 +207,8 @@ trainer.train()
 
 # --- 8. Save Model ---
 output_dir = os.path.join(os.path.dirname(__file__), "models/gec_german_mt5_optimized")
-os.makedirs(output_dir, exist_ok=True)
+if trainer.is_world_process_zero():
+    os.makedirs(output_dir, exist_ok=True)
+    
 trainer.save_model(output_dir)
-logger.info(f"Model saved to {output_dir}")
-
-# Save tokenizer
-tokenizer.save_pretrained(output_dir)
-logger.info("Tokenizer saved.")
+logger.info(f"Model and Tokenizer saved to {output_dir}")
