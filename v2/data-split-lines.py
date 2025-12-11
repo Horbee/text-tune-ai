@@ -11,7 +11,6 @@ import os
 df = pd.read_csv(os.path.join(os.path.dirname(__file__), '../v1/data', 'news_data.csv'))
 df_de = df["text"].dropna().tolist()
 
-
 def clean(text: str) -> str:
     text = re.sub(r'[„“"""\n]', '', text)
     text = re.sub(r'([!?.]){4,}', r'\1\1\1', text)
@@ -25,7 +24,7 @@ def chunk_sentences(sentences, chunk_size=3):
 
 
 df_de_chunked = []
-for text in tqdm(df_de[:10000]):
+for text in tqdm(df_de[:30000], desc="Processing German texts"):
     sentences = [clean(sent.strip()) for sent in nltk.tokenize.sent_tokenize(text, language='german')]
     # chunks = list(chunk_sentences(sentences, chunk_size=3))
     df_de_chunked.extend(sentences)
@@ -37,8 +36,9 @@ for text in tqdm(df_de[:10000]):
 print("Final length:", len(df_de_chunked))
 # print(df_de_chunked)
 
-pd.DataFrame(df_de_chunked, columns=["text"]).to_json(
-    os.path.join(os.path.dirname(__file__), 'data', 'news_data_text_10000.jsonl'), orient='records', lines=True, force_ascii=False
+df_output = pd.DataFrame({ "id": range(len(df_de_chunked)), "text": df_de_chunked})
+df_output.to_json(
+    os.path.join(os.path.dirname(__file__), 'data', 'news_data_text_30000.jsonl'), orient='records', lines=True, force_ascii=False
 )
 
-print("Saved to news_data_text_10000.jsonl")
+print("Saved to news_data_text_30000.jsonl")

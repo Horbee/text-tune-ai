@@ -4,15 +4,32 @@
 from transformers import T5Tokenizer, MT5ForConditionalGeneration
 from peft import PeftModel
 import os
+import argparse
 
-MODEL_PATH = os.path.join(os.path.dirname(__file__), 'models', 'gec_german_mt5_lora')
-BASE_MODEL = "google/mt5-base"
+parser = argparse.ArgumentParser(
+            prog='inference',
+            description='Try out a text correction model',
+            usage='python inference.py ./models/gec_german_mt5',
+        )
+
+parser.add_argument('model_name')
+parser.add_argument('--peft', type=bool, default=False, help='Use PEFT model loading if True')
+parser.add_argument('--base_model', type=str, default='google/mt5-base', help='Base model name or path')
+args = parser.parse_args()
 
 # Load model and tokenizer
-print("Loading model...")
-tokenizer = T5Tokenizer.from_pretrained(BASE_MODEL, use_fast=False, legacy=False)
-base_model = MT5ForConditionalGeneration.from_pretrained(BASE_MODEL)
-model = PeftModel.from_pretrained(base_model, MODEL_PATH)
+def load_model(use_peft: bool):
+    print("Loading model...")
+    tokenizer = T5Tokenizer.from_pretrained(args.model_name, use_fast=False, legacy=False)
+    if (use_peft):
+        base_model = MT5ForConditionalGeneration.from_pretrained(args.base_model)
+        model = PeftModel.from_pretrained(base_model, args.model_name)
+    else:
+        model = MT5ForConditionalGeneration.from_pretrained(args.model_name)
+    
+    return model, tokenizer
+
+model, tokenizer = load_model(args.peft)
 model.eval()
 print("Model loaded successfully!")
 
