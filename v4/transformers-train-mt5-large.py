@@ -43,8 +43,8 @@ logger = MyLogger(accelerator)
 # MODEL_CHECKPOINT = "google/mt5-base"
 MODEL_CHECKPOINT = "google/mt5-large"
 MAX_LENGTH = 128
-BATCH_SIZE = 8  # Per GPU batch size (2x A6000 = 16 effective per step)
-GRADIENT_ACCUMULATION_STEPS = 4  # Effective batch = 8 * 2 GPUs * 4 = 64
+BATCH_SIZE = 16  # H200 has 80GB+ VRAM, can handle larger batches
+GRADIENT_ACCUMULATION_STEPS = 2  # Effective batch = 32
 LEARNING_RATE = 2e-4  # Slightly lower for large model stability
 WARMUP_RATIO = 0.1  # 10% warmup
 NUM_EPOCHS = 3  # LoRA converges quickly; early stopping will handle it
@@ -66,7 +66,7 @@ if accelerator.is_main_process:
 logger.info("Loading dataset...")
 train_path = os.path.join(os.path.dirname(__file__), "data/news-data-v5-train.jsonl")
 val_path = os.path.join(os.path.dirname(__file__), "data/news-data-v5-eval.jsonl")
-dataset = load_dataset('json', data_files={'train': train_path, 'validation': val_path})
+dataset = load_dataset('json', data_files={'train': train_path, 'validation': val_path}, keep_in_memory=True)
 logger.info(f"Train samples: {len(dataset['train'])}, Val samples: {len(dataset['validation'])}")
 
 # --- 2. Tokenizer & Preprocessing ---
@@ -96,7 +96,9 @@ def preprocess_function(examples):
 
 logger.info("Tokenizing dataset...")
 tokenized_datasets = dataset.map(
-    preprocess_function, batched=True, batch_size=32, remove_columns=dataset["train"].column_names
+    preprocess_function, batched=True, batch_size=1000, remove_columns=dataset["train"].column_names,
+    load_from_cache_file=False,  # Avoid disk cache
+    keep_in_memory=True,  # Keep tokenized data in RAM
 )
 
 # --- 3. Metrics (BLEU) ---
@@ -162,8 +164,10 @@ if accelerator.is_main_process:
 # --- 5. Training Arguments ---
 training_args = Seq2SeqTrainingArguments(
     output_dir="./checkpoints/gec_german_mt5_large",
-    eval_strategy="epoch",
-    save_strategy="epoch",
+    eval_strategy="steps",
+    eval_steps=2000,
+    save_strategy="steps",
+    save_steps=2000,
     learning_rate=LEARNING_RATE,
     per_device_train_batch_size=BATCH_SIZE,
     per_device_eval_batch_size=BATCH_SIZE * 2,  # Larger for eval (no gradients)
@@ -185,8 +189,8 @@ training_args = Seq2SeqTrainingArguments(
     fp16=False,
     optim="adamw_torch",
     seed=SEED,
-    dataloader_num_workers=0,  # Parallel data loading
-    dataloader_pin_memory=False,
+    dataloader_num_workers=4,  # Parallel data loading
+    dataloader_pin_memory=True,
     push_to_hub=False,
     report_to=["none"],  # Avoid multi-process logging backends unless configured
     ddp_find_unused_parameters=False,  # Safer defaults with accelerate
