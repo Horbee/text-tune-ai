@@ -43,8 +43,8 @@ logger = MyLogger(accelerator)
 # MODEL_CHECKPOINT = "google/mt5-base"
 MODEL_CHECKPOINT = "google/mt5-large"
 MAX_LENGTH = 128
-BATCH_SIZE = 16  # H200 has 80GB+ VRAM, can handle larger batches
-GRADIENT_ACCUMULATION_STEPS = 2  # Effective batch = 32
+BATCH_SIZE = 64  # H200 has 80GB VRAM - go big
+GRADIENT_ACCUMULATION_STEPS = 1  # No accumulation needed with large batch
 LEARNING_RATE = 2e-4  # Slightly lower for large model stability
 WARMUP_RATIO = 0.1  # 10% warmup
 NUM_EPOCHS = 3  # LoRA converges quickly; early stopping will handle it
@@ -140,11 +140,14 @@ def compute_metrics(eval_preds):
 
 # --- 4. Model with LoRA ---
 logger.info("Loading model...")
-model = MT5ForConditionalGeneration.from_pretrained(MODEL_CHECKPOINT)
+model = MT5ForConditionalGeneration.from_pretrained(
+    MODEL_CHECKPOINT,
+    torch_dtype=torch.bfloat16,  # Load in bf16 directly
+)
 
-# Enable gradient checkpointing for memory efficiency
-model.gradient_checkpointing_enable()
-logger.info("Gradient checkpointing enabled")
+# Disable gradient checkpointing - H200 has enough memory, checkpointing slows down training
+# model.gradient_checkpointing_enable()
+logger.info("Model loaded in bf16 (gradient checkpointing disabled for speed)")
 
 # LoRA Configuration
 peft_config = LoraConfig(
@@ -185,12 +188,12 @@ training_args = Seq2SeqTrainingArguments(
     predict_with_generate=True,
     generation_max_length=MAX_LENGTH,
     generation_num_beams=1,  # Lightweight beam search
-    bf16=(DEVICE == "cuda" and torch.cuda.is_bf16_supported()),  # Use bf16 if available
+    bf16=True,  # H200 supports bf16
     fp16=False,
-    optim="adamw_torch",
+    optim="adamw_torch_fused",  # Fused optimizer is faster on modern GPUs
     seed=SEED,
-    dataloader_num_workers=4,  # Parallel data loading
-    dataloader_pin_memory=True,
+    dataloader_num_workers=0,  # Data is in memory, workers add overhead
+    dataloader_pin_memory=False,  # Not needed when data is in memory
     push_to_hub=False,
     report_to=["none"],  # Avoid multi-process logging backends unless configured
     ddp_find_unused_parameters=False,  # Safer defaults with accelerate
