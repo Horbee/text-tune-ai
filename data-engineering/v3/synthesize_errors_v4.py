@@ -12,8 +12,8 @@ random.seed(42)
 nlp = spacy.load("de_core_news_sm")
 
 # Path to your input file (adjust as needed)
-INPUT_PATH = os.path.join(os.path.dirname(__file__), "data", "news_data_text_10000.jsonl")   # replace with your full dataset path
-OUTPUT_PATH = os.path.join(os.path.dirname(__file__), "data", "news-data-train-v4.jsonl")
+INPUT_PATH = os.path.join(os.path.dirname(__file__), "../ministral", "ministral-data.jsonl")   # replace with your full dataset path
+OUTPUT_PATH = os.path.join(os.path.dirname(__file__), "../ministral", "ministral-train.jsonl")
 
 # Target distribution (fractions of total sentences)
 TARGET_DISTRIBUTION = {
@@ -363,7 +363,7 @@ def generate_corrupted_dataset(clean_sentences, targets):
 if __name__ == "__main__":
     # load data
     data = pd.read_json(INPUT_PATH, lines=True)
-    clean_sentences = data["text"].tolist()#[:1000]
+    clean_sentences = data["input"].tolist()#[:1000]
     total = len(clean_sentences)
     print(f"Total sentences: {total}")
 
@@ -377,7 +377,7 @@ if __name__ == "__main__":
     corrupted_pairs, counts = generate_corrupted_dataset(clean_sentences, targets)
 
     # write output as jsonl
-    out_df = pd.DataFrame([{"de_correct": a, "de_corrupted": b} for a,b in corrupted_pairs])
+    out_df = pd.DataFrame([{"input": a, "label": b} for a,b in corrupted_pairs])
     out_df.to_json(OUTPUT_PATH, lines=True, orient="records", force_ascii=False)
     print(f"Wrote {len(out_df)} records to {OUTPUT_PATH}\n")
 

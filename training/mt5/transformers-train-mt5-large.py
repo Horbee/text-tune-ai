@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """
 Optimized mT5 training script for German Grammar Error Correction (GEC).
-Includes memory optimization, mixed precision, gradient accumulation, and better monitoring.
+Optimized for 2x NVIDIA A6000 (48GB each) with DDP.
+Run with: accelerate launch --multi_gpu --num_processes=2 transformers-train-mt5-large.py
 """
 
 from datasets import load_dataset
@@ -18,21 +19,7 @@ from peft import LoraConfig, get_peft_model, TaskType
 from accelerate import Accelerator
 import os
 import torch
-import logging
-
-class MyLogger:
-    def __init__(self, accelerator=None):
-        self.accelerator = accelerator
-        self.logger = logging.getLogger(__name__)
-        if accelerator.is_main_process:
-            logging.basicConfig(level=logging.INFO)
-        else:
-            # Reduce logging level on non-main ranks
-            logging.basicConfig(level=logging.ERROR)
-    
-    def info(self, message):
-        if self.accelerator.is_main_process:
-            self.logger.info(message)
+from accelerate_logging import MyLogger
 
 
 # --- Accelerate & Logging Setup ---
@@ -40,11 +27,10 @@ accelerator = Accelerator()
 logger = MyLogger(accelerator)
 
 # --- Configuration ---
-# MODEL_CHECKPOINT = "google/mt5-base"
 MODEL_CHECKPOINT = "google/mt5-large"
 MAX_LENGTH = 128
-BATCH_SIZE = 64  # H200 has 80GB VRAM - go big
-GRADIENT_ACCUMULATION_STEPS = 1  # No accumulation needed with large batch
+BATCH_SIZE = 12  # A6000 has 48GB VRAM - conservative for gradient checkpointing
+GRADIENT_ACCUMULATION_STEPS = 3  # Effective batch = 12 * 2 GPUs * 3 = 72
 LEARNING_RATE = 2e-4  # Slightly lower for large model stability
 WARMUP_RATIO = 0.1  # 10% warmup
 NUM_EPOCHS = 3  # LoRA converges quickly; early stopping will handle it
@@ -66,7 +52,7 @@ if accelerator.is_main_process:
 logger.info("Loading dataset...")
 train_path = os.path.join(os.path.dirname(__file__), "data/news-data-v5-train.jsonl")
 val_path = os.path.join(os.path.dirname(__file__), "data/news-data-v5-eval.jsonl")
-dataset = load_dataset('json', data_files={'train': train_path, 'validation': val_path}, keep_in_memory=True)
+dataset = load_dataset('json', data_files={'train': train_path, 'validation': val_path}) # keep_in_memory=True)
 logger.info(f"Train samples: {len(dataset['train'])}, Val samples: {len(dataset['validation'])}")
 
 # --- 2. Tokenizer & Preprocessing ---
@@ -97,8 +83,7 @@ def preprocess_function(examples):
 logger.info("Tokenizing dataset...")
 tokenized_datasets = dataset.map(
     preprocess_function, batched=True, batch_size=1000, remove_columns=dataset["train"].column_names,
-    load_from_cache_file=False,  # Avoid disk cache
-    keep_in_memory=True,  # Keep tokenized data in RAM
+    # keep_in_memory=True,  # Keep tokenized data in RAM
 )
 
 # --- 3. Metrics (BLEU) ---
@@ -116,11 +101,6 @@ def compute_metrics(eval_preds):
     # Replace -100 labels
     labels = np.where(labels != -100, labels, tokenizer.pad_token_id)
 
-    # Decode
-    # decoded_preds = tokenizer.batch_decode(preds, skip_special_tokens=True)
-    # decoded_labels = tokenizer.batch_decode(labels, skip_special_tokens=True)
-    # decoded_preds = [pred.strip() for pred in decoded_preds]
-    # decoded_labels = [label.strip() for label in decoded_labels]
     decoded_preds = [
         tokenizer.decode(ids, skip_special_tokens=True).strip() for ids in preds
     ]
@@ -128,26 +108,17 @@ def compute_metrics(eval_preds):
         tokenizer.decode(ids, skip_special_tokens=True).strip() for ids in labels
     ]
 
-    # Log samples
-    # logger.info("\n--- Sample Predictions ---")
-    # for pred, label in zip(decoded_preds[:3], decoded_labels[:3]):
-    #     logger.info(f"Pred:  {pred}")
-    #     logger.info(f"Label: {label}\n")
-
     result = metric.compute(predictions=decoded_preds, references=decoded_labels)
     return {"bleu": result["score"]}
 
 
 # --- 4. Model with LoRA ---
 logger.info("Loading model...")
-model = MT5ForConditionalGeneration.from_pretrained(
-    MODEL_CHECKPOINT,
-    torch_dtype=torch.bfloat16,  # Load in bf16 directly
-)
+model = MT5ForConditionalGeneration.from_pretrained(MODEL_CHECKPOINT)
 
-# Disable gradient checkpointing - H200 has enough memory, checkpointing slows down training
+# Enable gradient checkpointing - essential for A6000 48GB with mT5-large
 # model.gradient_checkpointing_enable()
-logger.info("Model loaded in bf16 (gradient checkpointing disabled for speed)")
+# logger.info("Model loaded in bf16 with gradient checkpointing enabled")
 
 # LoRA Configuration
 peft_config = LoraConfig(
@@ -177,26 +148,26 @@ training_args = Seq2SeqTrainingArguments(
     gradient_accumulation_steps=GRADIENT_ACCUMULATION_STEPS,
     warmup_ratio=WARMUP_RATIO,
     weight_decay=0.01,
-    max_grad_norm=0.5,  # Stricter clipping for stability
+    max_grad_norm=1.0,  # Standard clipping
     num_train_epochs=NUM_EPOCHS,
-    logging_steps=100,
+    logging_steps=50,
     logging_dir="./logs",
-    save_total_limit=5,
+    save_total_limit=3,
     load_best_model_at_end=True,
     metric_for_best_model="bleu",
     greater_is_better=True,
     predict_with_generate=True,
     generation_max_length=MAX_LENGTH,
-    generation_num_beams=1,  # Lightweight beam search
-    bf16=True,  # H200 supports bf16
+    generation_num_beams=1,  # Greedy for speed
+    bf16=True,  # A6000 supports bf16
     fp16=False,
-    optim="adamw_torch_fused",  # Fused optimizer is faster on modern GPUs
+    optim="adamw_torch_fused",  # Fused optimizer is faster
     seed=SEED,
-    dataloader_num_workers=0,  # Data is in memory, workers add overhead
-    dataloader_pin_memory=False,  # Not needed when data is in memory
+    dataloader_num_workers=2,  # Some parallelism helps with DDP
+    dataloader_pin_memory=True,  # Faster CPU->GPU transfer
     push_to_hub=False,
-    report_to=["none"],  # Avoid multi-process logging backends unless configured
-    ddp_find_unused_parameters=False,  # Safer defaults with accelerate
+    report_to=["none"],
+    ddp_find_unused_parameters=False,  # Required False for gradient checkpointing
 )
 
 # --- 6. Data Collator & Trainer ---

@@ -41,7 +41,13 @@ gdown "https://drive.google.com/uc?id=1f1nLcDDnHXQ6rvKmlH-JCNhGeZM_Psv6"
 apt-get update
 apt-get install -y tmux
 
+source $HOME/.local/bin/env
+
 tmux new -t train
 ctrl + b, d
 
 accelerate launch v4/transformers-train-mt5-large.py
+
+
+scp -r -P 26543 -i ~/.ssh/id_ed25519 root@38.147.83.29:/workspace/text-tune-ai/training/v4/models/ ./
+rsync -avz -e "ssh -p 26543 -i ~/.ssh/id_ed25519.pub" root@38.147.83.29:/workspace/text-tune-ai/training/v4/models/ ./
