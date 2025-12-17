@@ -15,7 +15,7 @@ fi
 
 echo "==> Syncing Python dependencies..."
 uv sync --extra gpu
-uv pip install flash-attn --no-build-isolation
+# uv pip install flash-attn --no-build-isolation
 
 echo "==> Creating data directory..."
 mkdir -p ministral/data
