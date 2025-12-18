@@ -17,12 +17,13 @@ dependencies = [
     "sentencepiece>=0.2.1",
     "sacrebleu>=2.5.1",
     "protobuf>=6.33.1",
-    "trl>=0.26.1",
+    "trl>=0.24.0",
     "bitsandbytes>=0.49.0",
     "mistral-common>=1.8.6",
     "tokenizers>=0.22.1",
     "tiktoken>=0.12.0",
-    "unsloth>=2024.8",
+    "unsloth>=2025.12.6",
+    "unsloth-zoo>=2025.12.5",
 ]
 
 

@@ -2,9 +2,9 @@ import json
 import os
 
 # --- Configuration ---
-INPUT_FILE = "ministral-train.jsonl"      # Your original file
-OUTPUT_FILE = "ministral-train-formatted.jsonl"    # The file to feed into the training script
-SYSTEM_PROMPT = "Korrigiere die Grammatik im folgenden Satz auf Standarddeutsch."
+INPUT_FILE = "data/ministral-train.jsonl"      # Your original file
+OUTPUT_FILE = "data/ministral-train-formatted-v2.jsonl"    # The file to feed into the training script
+SYSTEM_PROMPT = "Korrigiere die Grammatik im folgenden Satz auf Standarddeutsch. Gib **nur** den korrigierten Satz zurück, ohne Anmerkungen."
 
 def prepare_dataset():
     if not os.path.exists(INPUT_FILE):

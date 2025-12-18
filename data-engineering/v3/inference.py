@@ -3,7 +3,6 @@
 
 from transformers import T5Tokenizer, MT5ForConditionalGeneration
 from peft import PeftModel
-import os
 import argparse
 
 parser = argparse.ArgumentParser(
