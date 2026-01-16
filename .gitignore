@@ -16,3 +16,8 @@ wheels/
 **/checkpoints/
 
 .DS_Store
+
+# correction files for scores
+*-corrected.jsonl
+
+notes.md

@@ -23,8 +23,9 @@ dependencies = [
     "scikit-learn>=1.7.2",
     "sentencepiece>=0.2.1",
     "spacy>=3.8.11",
+    "textdistance>=4.6.3",
     "torch>=2.9.1",
-    "transformers>=5.0.0rc1",
+    "transformers>=5.0.0rc2",
 ]
 
 # target torch to cuda 12.8 or CPU
