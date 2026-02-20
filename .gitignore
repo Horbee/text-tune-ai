@@ -21,3 +21,5 @@ wheels/
 *-corrected.jsonl
 
 notes.md
+
+.env
