@@ -11,15 +11,15 @@ wheels/
 
 
 **/logs/
-**/data/
 **/models/
 **/checkpoints/
 
-.DS_Store
+outputs/
 
-# correction files for scores
-*-corrected.jsonl
+.DS_Store
 
 notes.md
 
 .env
+
+unsloth_compiled_cache/

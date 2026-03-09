@@ -1,0 +1,5 @@
+[core]
+    analytics = false
+    remote = mynas
+['remote "mynas"']
+    url = /dummy/path/text_tune_ai_dvc
