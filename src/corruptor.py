@@ -11,7 +11,7 @@ load_dotenv()  # Load environment variables from .env file
 parser = argparse.ArgumentParser(description="Corrupt German sentences for GEC dataset.")
 parser.add_argument("--input", type=str, required=True, help="Path to the input JSONL file.")
 parser.add_argument("--output", type=str, required=True, help="Path to the output JSONL file.")
-parser.add_argument("--model", type=str, required=True, help="Name of the model to use.", default="gpt-oss:120b-cloud")
+parser.add_argument("--model", type=str, required=False, help="Name of the model to use.", default="gpt-oss:120b-cloud")
 args = parser.parse_args()
 
 client = Client(
@@ -71,7 +71,7 @@ if __name__ == '__main__':
                 },
                 {
                     'role': 'user',
-                    'content': f"Input: {row['label']}\nOutput:"
+                    'content': f"Input: {row['cleaned_sentence']}\nOutput:"
                 }
             ],
             model=args.model,
