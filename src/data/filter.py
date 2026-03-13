@@ -4,20 +4,10 @@ import pandas as pd
 from pydantic import BaseModel
 from ollama import Client
 from dotenv import load_dotenv
+from src.utils import process_in_batches
 import argparse
 
 load_dotenv()  # Load environment variables from .env file
-
-parser = argparse.ArgumentParser(description="Filter German sentences for GEC dataset.")
-parser.add_argument("--input", type=str, required=True, help="Path to the input JSONL file.")
-parser.add_argument("--output", type=str, required=True, help="Path to the output JSONL file.")
-parser.add_argument("--model", type=str, required=False, help="Name of the model to use.", default="gpt-oss:120b-cloud")
-args = parser.parse_args()
-
-client = Client(
-        host="https://ollama.com",
-        headers={'Authorization': 'Bearer ' + os.environ.get('OLLAMA_API_KEY')}
-    )
 
 class FilterResult(BaseModel):
     original_sentence: str
@@ -65,42 +55,58 @@ INPUT DATA:
 [Insert a batch of 10-20 sentences here, separated by newlines]
 """
 
-if __name__ == '__main__':
-    dataset = pd.read_json(args.input, lines=True)  # Load a sample of the dataset for evaluation
-    dataset_dict = dataset.to_dict(orient="records")  # Convert to list of dicts for easier processing
 
-    print(f"Starting to filter {len(dataset_dict)} rows...")
+def filter_sentences(sentences: list[str], client: Client, model: str = "gpt-oss:120b-cloud") -> list[FilterResult]:
+    formatted_input = "\n".join(sentences)
 
-    for i in range(0, len(dataset_dict), 10):  # Process in batches of 10
-        batch = dataset_dict[i:i+10]
-        print(f"Processing batch {i//10 + 1} of {int(len(dataset_dict) / 10)} batches...")
-
-        formatted_input = "\n".join([row['label'] for row in batch])  # Assuming 'label' column has the sentences
-
-        response = client.chat(
-            messages=[
-                {
-                    'role': 'system',
-                    'content': SYSTEM_PROMPT,
-                },
-                {
-                    'role': 'user',
-                    'content': formatted_input,
-                }
-            ],
-            model=args.model,
-            options={
-                "temperature": 0.5,
+    response = client.chat(
+        messages=[
+            {
+                'role': 'system',
+                'content': SYSTEM_PROMPT,
             },
-            format=FilterResult.model_json_schema(),
+            {
+                'role': 'user',
+                'content': formatted_input,
+            }
+        ],
+        model=model,
+        options={
+            "temperature": 0.5,
+        },
+        format=FilterResult.model_json_schema(),
+    )
+
+    output = response.message.content
+    return json.loads(output)
+
+
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser(description="Filter German sentences for GEC dataset.")
+    parser.add_argument("--input", type=str, required=True, help="Path to the input JSONL file.")
+    parser.add_argument("--output", type=str, required=True, help="Path to the output JSONL file.")
+    parser.add_argument("--from_index", type=int, required=False, default=0, help="Starting index for processing.")
+    parser.add_argument("--model", type=str, required=False, help="Name of the model to use.", default="gpt-oss:120b-cloud")
+    args = parser.parse_args()
+
+    client = Client(
+            host="https://ollama.com",
+            headers={'Authorization': 'Bearer ' + os.environ.get('OLLAMA_API_KEY')}
         )
 
-        output = response.message.content
 
-        batch_result = json.loads(output)
+    dataset = pd.read_json(args.input, lines=True)[args.from_index: ]  # Load a sample of the dataset for evaluation
+    all_sentences = dataset["text"].to_list()
+
+    print(f"Starting to filter {len(all_sentences)} rows...")
+
+    for current_batch in process_in_batches(all_sentences, batch_size=10):
+        filter_results = filter_sentences(current_batch, client, model=args.model)
+        batch_result = [row for row in filter_results if row["keep"]]  # Keep only sentences marked for retention
 
         with open(args.output, "a", encoding="utf-8") as f:
             for line in batch_result:
                 f.write(json.dumps(line, ensure_ascii=False) + "\n")
+
 
 
