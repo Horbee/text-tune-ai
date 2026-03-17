@@ -57,4 +57,27 @@ Text-Tune-Large-v6 (14b)
 3. STRICT ACCURACY: 69.4%
 4. GLEU: 0.8936
 5. WER: 4.93%
+
+
+
+Text-Tune-Base-v7 (8b)
+========================================
+1. Grammar Score: 79.1% -> 79.6%
+2. Meaning Score: 83.7% -> 84.0%
+3. STRICT ACCURACY: 69.4%
+4. GLEU: 0.8826 -> 0.8955
+5. WER: 5.53% -> 4.83%
 ```
+
+
+Text-Tune-Base-v6 (8b) on new data
+========================================
+ 🏆 GEC EVALUATION REPORT
+========================================
+Total Sentences Evaluated : 748
+1. Grammar Score          : 65.4%  (Sentences with perfect grammar)
+2. Meaning Score          : 74.5%  (Sentences without deletions/hallucinations)
+----------------------------------------
+🌟 STRICT ACCURACY        : 52.3%  (Grammar AND Meaning are perfect)
+========================================
+
