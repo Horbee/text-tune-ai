@@ -54,7 +54,7 @@ INPUT DATA:
 def corrupt_sentence(sentences: list[str], client: Client, model: str = "gpt-oss:120b-cloud") -> list[CorruptionResult]:
     formatted_input = "\n".join(sentences)
 
-    print(formatted_input)
+    # print(formatted_input)
 
     response = client.chat(
         messages=[
