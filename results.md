@@ -67,6 +67,33 @@ Text-Tune-Base-v7 (8b)
 3. STRICT ACCURACY: 69.4%
 4. GLEU: 0.8826 -> 0.8955
 5. WER: 5.53% -> 4.83%
+
+
+Text-Tune-Small-v8 (3b)
+========================================
+1. Grammar Score: 54.5% -> 61.2%
+2. Meaning Score: 58.4% -> 71.3%
+3. STRICT ACCURACY: 46.8% -> 51.2%
+4. GLEU: 0.7698 -> 0.8344
+5. WER: 13.05% -> 7.64%
+
+
+Text-Tune-Base-v8 (8b)
+========================================
+1. Grammar Score: 79.1% -> 79.6% -> 74.9%
+2. Meaning Score: 83.7% -> 84.0% -> 81.5%
+3. STRICT ACCURACY: 69.4% -> 66.1%
+4. GLEU: 0.8826 -> 0.8955 -> 0.8796
+5. WER: 5.53% -> 4.83% -> 5.53%
+
+
+Text-Tune-Large-v8 (14b)
+========================================
+1. Grammar Score: 80.2% -> 75.2%
+2. Meaning Score: 83.5% -> 79.3%
+3. STRICT ACCURACY: 69.4% -> 65.3%
+4. GLEU: 0.8936 -> 0.8804
+5. WER: 4.93% -> 5.63%
 ```
 
 

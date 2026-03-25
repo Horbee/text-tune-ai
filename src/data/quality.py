@@ -25,7 +25,8 @@ CRITERIA FOR "HIGH QUALITY":
 1. unambiguous_error: The corrupted sentence must be clearly ungrammatical or unnatural.
 2. single_intent: A human reader would immediately guess the CLEAN sentence is the intended meaning.
 3. not_valid_alternative: The corrupted sentence must NOT be a valid German sentence with a different meaning (e.g., do not simply change tense "ging" -> "geht" or subject "Er" -> "Sie" if both are valid).
-4. recoverable: It must be possible to reconstruct the Clean sentence without hallucinating new information.
+4. recoverable: It must be possible to reconstruct the exact Clean sentence. If the Corrupted sentence adds an extra word (like an adjective or adverb), a corrector would naturally try to fix its grammar rather than delete it. These additions make the Clean target unrecoverable.
+5. meaning_preserved: The corrupted sentence should not lose crucial information or add new descriptive words/facts that are not in the clean sentence.
 
 Input Format:
 Clean: [Sentence]
@@ -50,6 +51,10 @@ Output: {"verdict": "KEEP", "reason": "Clear spelling error, recoverable."}
 Clean: "Wir essen Brot."
 Corrupt: "Wir essen."
 Output: {"verdict": "DISCARD", "reason": "Corrupt version is valid (intransitive usage). Context is lost."}
+
+Clean: "Die Frau liest das Buch."
+Corrupt: "Die junge Frau liest das Buch."
+Output: {"verdict": "DISCARD", "reason": "Corrupted version adds the adjective 'junge'. A GEC model would just fix grammar, not delete the word, failing to match the clean target."}
 """
     
 def validate_corruption_pair(clean: str, corrupt: str, client: ollama.Client, model: str = "gpt-oss:120b-cloud") -> EvalResult:

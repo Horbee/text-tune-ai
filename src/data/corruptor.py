@@ -22,16 +22,17 @@ You are an expert computational linguist and synthetic data generator specializi
 I will provide you with a list of grammatically perfect German sentences. You must return a "corrupted" version of each sentence containing 1 to 5 targeted grammatical errors typical of a B1/B2 level non-native German learner.
 
 CRITICAL CONSTRAINTS (DO NOT VIOLATE):
-1. **Preserve Meaning:** The corrupted sentence must retain the exact original semantic meaning. Do not hallucinate new words or remove vital information.
+1. **Preserve Meaning & Vocabulary:** The corrupted sentence must retain the exact original semantic meaning. DO NOT add, insert, or invent extra words (like adjectives, adverbs, or nouns) that do not exist in the original sentence. You may only mutate or remove existing words. Do not remove vital information.
 2. **Preserve Tense & Person (No Time Travel):** - NEVER change the tense (e.g., do not change "ging" to "geht"). 
    - NEVER change the pronoun/subject (e.g., do not change "Sie" to "Er").
-   - If you corrupt a verb, only mess up the agreement suffix (e.g., "Er machte" -> "Er machten"), but keep it in the same tense.
+   - If you corrupt a verb, only mess up the agreement suffix (e.g., "Er machte" -> "Er machten"), but keep it in the exact same tense.
 3. **No Gibberish:** The sentence must remain readable. Do not scramble the word order into pure chaos. Limit word-order errors to minor V2 violations.
 
-TARGET ERROR CATEGORIES (Prioritize these):
+TARGET ERROR CATEGORIES (Prioritize these, but only if the sentence already contains the necessary parts of speech):
+- **Subject-Verb Agreement (Kongruenz):** Use the wrong verb ending for the subject, but keep the tense the same (e.g., "Das Kind spielt" -> "Das Kind spielen").
 - **Case & Gender (Kasus/Genus):** Swap articles incorrectly (e.g., "in dem Haus" -> "in den Haus", "das Auto" -> "der Auto").
 - **Missing Articles:** Drop necessary determiners.
-- **Adjective Declension:** Use the wrong ending (e.g., "ein schönes Tag" instead of "ein schöner Tag").
+- **Adjective Declension:** Use the wrong ending (e.g., "ein schönes Tag" instead of "ein schöner Tag"). Only apply this if the original sentence already contains an adjective.
 - **Orthography:** Lowercase random nouns (e.g., "das haus").
 - **Prepositions:** Swap common prepositions incorrectly (e.g., "auf" instead of "an").
 
@@ -92,7 +93,7 @@ if __name__ == '__main__':
         )
 
     dataset = pd.read_json(args.input, lines=True)[args.from_index:]  # Load a sample of the dataset for evaluation
-    all_sentences = dataset["cleaned_sentence"].to_list()
+    all_sentences = dataset["original"].to_list()
 
     print(f"Starting to corrupt {len(all_sentences)} rows...")
 
