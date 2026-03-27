@@ -85,7 +85,7 @@ df = pd.read_json(args.input_file, lines=True)
 # remove rows where 'model_corrected' is ""
 # df = df[df['model_corrected'] != ""]
 
-references = df['label'].tolist()
+references = df['original'].tolist()
 model_outputs = df['model_corrected'].tolist()
 
 

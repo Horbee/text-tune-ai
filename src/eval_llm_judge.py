@@ -80,8 +80,8 @@ if __name__ == "__main__":
         headers={'Authorization': 'Bearer ' + os.environ.get('OLLAMA_API_KEY')}
     )
 
-    eval_data = pd.read_json(args.correction_file, lines=True)[args.from_index: 20] 
-    sentence_paris = list(zip(eval_data["label"].to_list(), eval_data["model_corrected"].to_list()))
+    eval_data = pd.read_json(args.correction_file, lines=True)[args.from_index:] 
+    sentence_paris = list(zip(eval_data["original"].to_list(), eval_data["model_corrected"].to_list()))
     
     print(f"Starting to evaluate {len(sentence_paris)} rows...")
 
@@ -102,7 +102,7 @@ if __name__ == "__main__":
 
             results.append({
                 "original": judgment["original_sentence"],
-                "output": judgment["model_output"],
+                "model_corrected": judgment["model_output"],
                 "is_grammatically_correct": judgment["is_grammatically_correct"],
                 "meaning_preserved": judgment["meaning_preserved"],
                 "reason": judgment["reason"]

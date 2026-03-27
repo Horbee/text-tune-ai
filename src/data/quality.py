@@ -76,6 +76,7 @@ def validate_corruption_pair(clean: str, corrupt: str, client: ollama.Client, mo
             ],
             format=EvalResult.model_json_schema(),
             options={'temperature': 0.0}, # Temperature 0 for maximum consistency
+            think="high",
         )
         
         result_str = response['message']['content']

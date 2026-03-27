@@ -39,7 +39,7 @@ for index, row in tqdm(df.iterrows(), total=len(df), desc="Processing rows"):
 
         # Append single result to file (much more efficient than rewriting entire file)
         with open(output_file, 'a', encoding='utf-8') as f:
-            f.write(json.dumps({'input': user_input, 'model_corrected': corrected_text, 'label': original_text, }, ensure_ascii=False))
+            f.write(json.dumps({'corrupted': user_input, 'model_corrected': corrected_text, 'original': original_text, }, ensure_ascii=False))
             f.write('\n')
         
     except Exception as e:

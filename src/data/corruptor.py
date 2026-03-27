@@ -41,6 +41,7 @@ You must respond strictly in JSON format as an array of objects with the followi
 [
   {
     "original": "The clean sentence provided to you.",
+    "corruption_plan": "Briefly state the grammatical core of the sentence. Pick 1-2 allowed error types from the target list. State exactly which words you will change and verify that the tense, meaning, and vocabulary remain unchanged.",
     "corrupted": "The corrupted sentence. Return the full sentence, without **highlighting** the errors.",
     "error_types": ["List", "of", "error", "categories", "applied"],
     "num_errors": "Integer count of errors made"
@@ -72,6 +73,7 @@ def corrupt_sentence(sentences: list[str], client: Client, model: str = "gpt-oss
         options={
             "temperature": 0.5,
         },
+        think="high",
         format=CorruptionResult.model_json_schema(),
     )
 
