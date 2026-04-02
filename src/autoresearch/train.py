@@ -110,7 +110,7 @@ if __name__ == "__main__":
 
     print("Loading dataset...")
     dataset = load_dataset("json", data_files=args.dataset, split="train")
-    dataset = dataset.train_test_split(test_size=0.1, seed=3407, shuffle=True) # Use 90% for training, 10% for validation
+    dataset = dataset.train_test_split(test_size=0.05, seed=3407, shuffle=True) # Use 95% for training, 5% for validation
 
     dataset = dataset.map(
         lambda x: {

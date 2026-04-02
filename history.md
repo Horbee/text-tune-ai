@@ -1,3 +1,34 @@
+# Suggestions for v11
+
+- Increase Volume: Because the new filtering pipeline is so strict, we need to feed it more raw text. Try to scale the v10 dataset up to at least 7,000–8,000 samples to compensate for the lost volume.
+- Inject Controlled Noise: In the corruption prompt, tell gpt-oss-120b that for 20% of the sentences, it should apply two or three errors instead of just one. This will push the average edit distance back up to around ~5.5, re-introducing the "difficulty" the model needs to build robust reasoning, without reverting to the meaning-destroying gibberish of v9.
+
+# Iteration 9-10
+
+- v9 models performed better (1-2%)
+- getting performance boost from more data cleaning
+- adjusting prompts for gpt-oss-120 to avoid broken sentences and grammar problems
+- added high thinking to gpt-oss-120 
+- results for 3b model were very good
+- v9 Training Dataset:
+- - Total Samples: 6,776
+- - Average Sentence Length: ~99.7 characters
+- - Average Edit Distance: 5.47 characters
+- v10 Training Dataset:
+- - Total Samples: 6,493
+- - Average Sentence Length: ~97.8 characters
+- - Average Edit Distance: 4.71 characters
+
+The "Sterile Data" Problem (Loss of Regularization) - the corruptions were larger, noisier, and sometimes chaotic. The model had to work much harder to reconstruct the sentences, which acted as a powerful regularizer and made the model robust.
+
+# Iteration 7 - 8
+
+- scale up training data by collecting more from german wikipedia
+- adjusting training scripts for better performance
+- performance was suprisingly worse
+- while inspecting data I've found quality problems in the training and eval data as well
+- models were punished for good results: ex.: figuring out hallucinated corrupted sentences   
+
 # Iteration 6
 
 - train Ministral-3:3b, 8b and 14b

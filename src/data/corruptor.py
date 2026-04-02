@@ -5,6 +5,7 @@ from pydantic import BaseModel
 from ollama import Client
 from dotenv import load_dotenv
 from src.utils import process_in_batches
+from tqdm import tqdm
 import argparse
 
 load_dotenv()  # Load environment variables from .env file
@@ -95,11 +96,11 @@ if __name__ == '__main__':
         )
 
     dataset = pd.read_json(args.input, lines=True)[args.from_index:]  # Load a sample of the dataset for evaluation
-    all_sentences = dataset["original"].to_list()
+    all_sentences = dataset["original_sentence"].to_list()
 
     print(f"Starting to corrupt {len(all_sentences)} rows...")
 
-    for current_batch in process_in_batches(all_sentences, batch_size=10):
+    for current_batch in tqdm(process_in_batches(all_sentences, batch_size=10), total=len(all_sentences)//10):
         batch_result = corrupt_sentence(current_batch, client, model=args.model)
 
         with open(args.output, "a", encoding="utf-8") as f:

@@ -18,6 +18,8 @@ dependencies = [
     "transformers>=5.2.0",
     "dvc>=3.66.1",
     "pip>=26.0.1",
+    "matplotlib>=3.10.8",
+    "ipykernel>=7.2.0",
 ]
 
 
