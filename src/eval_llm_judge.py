@@ -10,6 +10,7 @@ from utils import process_in_batches
 
 load_dotenv()
 
+
 class EvalResult(BaseModel):
     original_sentence: str
     model_output: str
@@ -30,7 +31,7 @@ OUTPUT FORMAT:
 Provide the output strictly as a JSON array of objects. Do not include any conversational filler. Each object must have the following structure:
 [
   {
-    "original_sentence": "The exact  input string of the original sentence",
+    "original_sentence": "The exact input string of the original sentence",
     "model_output": "The exact input string of the model's corrected output",
     "is_grammatically_correct": true/false,
     "meaning_preserved": true/false,
@@ -111,7 +112,6 @@ if __name__ == "__main__":
             with open(OUTPUT_FILE, "a", encoding="utf-8") as f:
                 f.write(json.dumps(results[-1], ensure_ascii=False) + "\n")
 
-        
     # ---------------------------------------------------------
     # CALCULATE METRICS
     # ---------------------------------------------------------
