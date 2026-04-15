@@ -22,7 +22,7 @@ You are an expert German linguist evaluating a Grammatical Error Correction (GEC
 
 Evaluate the MODEL OUTPUT on two criteria:
 1. is_grammatically_correct: Is the MODEL OUTPUT completely free of grammatical, spelling, case (Kasus), and punctuation errors? (true/false)
-2. meaning_preserved: Does the MODEL OUTPUT preserve the exact intended meaning of the ORIGINAL sentence without deleting crucial information or hallucinating new facts? (true/false)
+2. meaning_preserved: Does the MODEL OUTPUT preserve the intended meaning of the CORRUPTED sentence while fixing its grammar to match the standard of the ORIGINAL sentence? It should not delete crucial information or hallucinate new facts. (true/false)
 
 OUTPUT FORMAT:
 Provide the output strictly as a JSON array of objects. Do not include any conversational filler. Each object must have the following structure:
@@ -43,16 +43,15 @@ def _correct_texts_batch(
     corrupted_texts: list[str],
 ) -> list[str]:
     """Get model corrections for a batch of corrupted texts."""
-    from ollama import chat, ChatResponse
+    from src.inference import correct_text_latest
 
     corrections = []
     for text in corrupted_texts:
         try:
-            response: ChatResponse = chat(
-                model=model,
-                messages=[{"role": "user", "content": text}],
-            )
-            corrections.append(response["message"]["content"].strip())
+            # Using correct_text_latest by default for structured output
+            # If original models are needed, this could be changed to correct_text_original
+            corrected = correct_text_latest(model, text)
+            corrections.append(corrected)
         except Exception as e:
             corrections.append(f"ERROR: {str(e)}")
     return corrections
@@ -60,6 +59,7 @@ def _correct_texts_batch(
 
 def _evaluate_batch(
     original_sentences: list[str],
+    corrupted_sentences: list[str],
     model_outputs: list[str],
     client: Client,
     judge_model: str,
@@ -68,8 +68,10 @@ def _evaluate_batch(
     """Evaluate a batch using the LLM judge."""
     formatted_input = "\n".join(
         [
-            f'ORIGINAL: "{orig}" MODEL OUTPUT: "{output}"'
-            for orig, output in zip(original_sentences, model_outputs)
+            f'CORRUPTED: "{corr}" ORIGINAL: "{orig}" MODEL OUTPUT: "{output}"'
+            for corr, orig, output in zip(
+                corrupted_sentences, original_sentences, model_outputs
+            )
         ]
     )
 
@@ -134,12 +136,18 @@ def evaluate_tier(
     grammar_count = 0
     meaning_count = 0
 
-    for batch_orig, batch_corr in zip(
+    for batch_orig, batch_corr, batch_model_out in zip(
         process_in_batches(original_sentences, batch_size=10, verbose=False),
+        process_in_batches(corrupted_sentences, batch_size=10, verbose=False),
         process_in_batches(all_corrections, batch_size=10, verbose=False),
     ):
         batch_results = _evaluate_batch(
-            batch_orig, batch_corr, ollama_client, judge_model, temperature
+            batch_orig,
+            batch_corr,
+            batch_model_out,
+            ollama_client,
+            judge_model,
+            temperature,
         )
         results.extend(batch_results)
 

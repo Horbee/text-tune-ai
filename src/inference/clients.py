@@ -1,3 +1,4 @@
+import json
 from pydantic import BaseModel
 from src.inference.base import generate_inference
 from src.prompts import instruction_v6
@@ -39,11 +40,19 @@ def correct_text_original(model_id: str, corrupted_text: str) -> str:
         corrupted_text: The text to correct.
 
     Returns:
-        The model's response (expected to be JSON string based on instruction_v6).
+        The corrected text parsed from the model's JSON response.
     """
     prompt = instruction_v6.format(input_text=corrupted_text)
     messages = [{"role": "user", "content": prompt}]
 
     result = generate_inference(model_id=model_id, messages=messages)
+
+    try:
+        # Try to parse the JSON response
+        parsed = json.loads(str(result))
+        if "corrected_text" in parsed:
+            return parsed["corrected_text"]
+    except json.JSONDecodeError:
+        pass
 
     return str(result)

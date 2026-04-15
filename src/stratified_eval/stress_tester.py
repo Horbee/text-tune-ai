@@ -11,7 +11,7 @@ Tests model behavior at the limits of their capability:
 import json
 from dataclasses import dataclass
 from typing import Optional
-from ollama import chat, ChatResponse
+from src.inference import correct_text_latest
 
 
 @dataclass
@@ -82,13 +82,7 @@ def _run_length_test(model: str, test_item: dict, temperature: float) -> dict:
     word_count = test_item.get("word_count", len(input_text.split()))
 
     try:
-        response: ChatResponse = chat(
-            model=model,
-            messages=[
-                {"role": "user", "content": input_text},
-            ],
-        )
-        model_output = response["message"]["content"].strip()
+        model_output = correct_text_latest(model, input_text).strip()
 
         is_modified = input_text.strip() != model_output.strip()
         is_correct = not is_modified
@@ -128,13 +122,7 @@ def _run_high_density_test(model: str, test_item: dict, temperature: float) -> d
     error_count = _count_errors_in_text(input_text, expected)
 
     try:
-        response: ChatResponse = chat(
-            model=model,
-            messages=[
-                {"role": "user", "content": input_text},
-            ],
-        )
-        model_output = response["message"]["content"].strip()
+        model_output = correct_text_latest(model, input_text).strip()
 
         is_correct = _check_correction_quality(expected, model_output)
 
@@ -173,13 +161,7 @@ def _run_dialect_test(model: str, test_item: dict, temperature: float) -> dict:
     note = test_item.get("note", "")
 
     try:
-        response: ChatResponse = chat(
-            model=model,
-            messages=[
-                {"role": "user", "content": input_text},
-            ],
-        )
-        model_output = response["message"]["content"].strip()
+        model_output = correct_text_latest(model, input_text).strip()
 
         is_correct = _check_correction_quality(expected, model_output)
 

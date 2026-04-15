@@ -1,0 +1,100 @@
+{"corrupted": "Ich gebe dem Mann das Buch.", "original": "Ich gebe dem Mann das Buch.", "error_types": ["case"], "difficulty": "medium"}
+{"corrupted": "Er hat ein Problem mit sein Vater.", "original": "Er hat ein Problem mit seinem Vater.", "error_types": ["case", "possessive_pronoun"], "difficulty": "medium"}
+{"corrupted": "Die Frau von den Mann ist nett.", "original": "Die Frau von dem Mann ist nett.", "error_types": ["preposition_case"], "difficulty": "medium"}
+{"corrupted": "Ich erinnere mich an die alte Lehrerin die uns geholfen hat.", "original": "Ich erinnere mich an die alte Lehrerin, die uns geholfen hat.", "error_types": ["relative_clause_comma"], "difficulty": "medium"}
+{"corrupted": "Der Hund belongt dem Madchen.", "original": "Der Hund gehört dem Mädchen.", "error_types": ["orthography", "case"], "difficulty": "medium"}
+{"corrupted": "Sie spricht mit ihr Schwester.", "original": "Sie spricht mit ihrer Schwester.", "error_types": ["possessive_pronoun_case"], "difficulty": "medium"}
+{"corrupted": "Ich habe den Film schon gesehen.", "original": "Ich habe den Film schon gesehen.", "error_types": ["article_case"], "difficulty": "medium"}
+{"corrupted": "Nach dem Essen, gehen wir spazieren.", "original": "Nach dem Essen gehen wir spazieren.", "error_types": ["punctuation"], "difficulty": "medium"}
+{"corrupted": "Das ist die Mann dessen Auto kaputt ist.", "original": "Das ist der Mann, dessen Auto kaputt ist.", "error_types": ["relative_pronoun_case"], "difficulty": "medium"}
+{"corrupted": "Er hat mir ein Geschenk gegeben dass mich sehr gefreut hat.", "original": "Er hat mir ein Geschenk gegeben, das mich sehr gefreut hat.", "error_types": ["relative_clause_comma"], "difficulty": "medium"}
+{"corrupted": "Ich freue mich auf die Reise nach Italia.", "original": "Ich freue mich auf die Reise nach Italien.", "error_types": ["orthography"], "difficulty": "medium"}
+{"corrupted": "Der Konig von England ist beliebt.", "original": "Der König von England ist beliebt.", "error_types": ["orthography"], "difficulty": "medium"}
+{"corrupted": "Sie hat mit ihr Freund gesprochen.", "original": "Sie hat mit ihrem Freund gesprochen.", "error_types": ["possessive_pronoun_case"], "difficulty": "medium"}
+{"corrupted": "Ich traue dem mann nicht.", "original": "Ich traue dem Mann nicht.", "error_types": ["capitalization", "case"], "difficulty": "medium"}
+{"corrupted": "Das gehort zu mir.", "original": "Das gehört zu mir.", "error_types": ["orthography"], "difficulty": "medium"}
+{"corrupted": "Die Blumen in den Garten blühen in vielen bunten Farben.", "original": "Die Blumen im Garten blühen in vielen bunten Farben.", "error_types": ["case"], "difficulty": "medium"}
+{"corrupted": "Wir gehen am Wochenende oft im Wald wandern ,", "original": "Wir gehen am Wochenende oft im Wald wandern.", "error_types": ["punctuation"], "difficulty": "medium"}
+{"corrupted": "Sie spricht fließend Englisch und Französisch ,", "original": "Sie spricht fließend Englisch und Französisch.", "error_types": ["punctuation"], "difficulty": "medium"}
+{"corrupted": "Der Film dem wir gesehen haben, war sehr lustig.", "original": "Der Film, den wir gesehen haben, war sehr lustig.", "error_types": ["case", "punctuation"], "difficulty": "medium"}
+{"corrupted": "Ich brauche eine neue Brille, weil ich schlecht sehe ,", "original": "Ich brauche eine neue Brille, weil ich schlecht sehe.", "error_types": ["punctuation"], "difficulty": "medium"}
+{"corrupted": "Das Museum bietet eine interessante Ausstellung über Kunst ,", "original": "Das Museum bietet eine interessante Ausstellung über Kunst.", "error_types": ["punctuation"], "difficulty": "medium"}
+{"corrupted": "Er hat sich ein neues Fahrrad gekauft ,", "original": "Er hat sich ein neues Fahrrad gekauft.", "error_types": ["punctuation"], "difficulty": "medium"}
+{"corrupted": "Wir treffen uns heute Abend mit Freunden in den Café.", "original": "Wir treffen uns heute Abend mit Freunden im Café.", "error_types": ["case"], "difficulty": "medium"}
+{"corrupted": "Die Prüfung war viel schwerer als ich erwartet hatte ,", "original": "Die Prüfung war viel schwerer als ich erwartet hatte.", "error_types": ["punctuation"], "difficulty": "medium"}
+{"corrupted": "Ich höre gerne klassische Musik beim Arbeiten ,", "original": "Ich höre gerne klassische Musik beim Arbeiten.", "error_types": ["punctuation"], "difficulty": "medium"}
+{"corrupted": "Das Wetter ist heute perfekt für einen Ausflug ,", "original": "Das Wetter ist heute perfekt für einen Ausflug.", "error_types": ["punctuation"], "difficulty": "medium"}
+{"corrupted": "Sie hat ein wunderschönes Kleid für die Party gekauft ,", "original": "Sie hat ein wunderschönes Kleid für die Party gekauft.", "error_types": ["punctuation"], "difficulty": "medium"}
+{"corrupted": "Der Zug hatte leider eine halbe Stunde Verspätung ,", "original": "Der Zug hatte leider eine halbe Stunde Verspätung.", "error_types": ["punctuation"], "difficulty": "medium"}
+{"corrupted": "Ich koche heute Abend ein leckeres Abendessen für uns ,", "original": "Ich koche heute Abend ein leckeres Abendessen für uns.", "error_types": ["punctuation"], "difficulty": "medium"}
+{"corrupted": "Die Kinder spielen fröhlich auf den Spielplatz.", "original": "Die Kinder spielen fröhlich auf dem Spielplatz.", "error_types": ["case"], "difficulty": "medium"}
+{"corrupted": "Er hat mir geholfen den schweren Schrank zu tragen.", "original": "Er hat mir geholfen, den schweren Schrank zu tragen.", "error_types": ["punctuation"], "difficulty": "medium"}
+{"corrupted": "Wir haben ein kleines Haus am Rand die Stadt gemietet.", "original": "Wir haben ein kleines Haus am Rand der Stadt gemietet.", "error_types": ["case"], "difficulty": "medium"}
+{"corrupted": "Ich muss morgen früh aufstehen, um zur Arbeit zu gehen ,", "original": "Ich muss morgen früh aufstehen, um zur Arbeit zu gehen.", "error_types": ["punctuation"], "difficulty": "medium"}
+{"corrupted": "Das Buch, der du mir geliehen hast, ist sehr spannend.", "original": "Das Buch, das du mir geliehen hast, ist sehr spannend.", "error_types": ["article_case"], "difficulty": "medium"}
+{"corrupted": "Sie lernt seit drei Jahren fleißig Spanisch ,", "original": "Sie lernt seit drei Jahren fleißig Spanisch.", "error_types": ["punctuation"], "difficulty": "medium"}
+{"corrupted": "Der Kuchen den meine Oma gebacken hat, schmeckt köstlich.", "original": "Der Kuchen, den meine Oma gebacken hat, schmeckt köstlich.", "error_types": ["punctuation"], "difficulty": "medium"}
+{"corrupted": "Ich habe gestern einem alten Freund auf der Straße getroffen.", "original": "Ich habe gestern einen alten Freund auf der Straße getroffen.", "error_types": ["case"], "difficulty": "medium"}
+{"corrupted": "Wir verbringen unseren Urlaub dieses Jahr am Meer ,", "original": "Wir verbringen unseren Urlaub dieses Jahr am Meer.", "error_types": ["punctuation"], "difficulty": "medium"}
+{"corrupted": "Das neue Smartphone hat eine sehr gute Kamera ,", "original": "Das neue Smartphone hat eine sehr gute Kamera.", "error_types": ["punctuation"], "difficulty": "medium"}
+{"corrupted": "Er spielt jeden Dienstagabend Fußball mit seinen Kollegen ,", "original": "Er spielt jeden Dienstagabend Fußball mit seinen Kollegen.", "error_types": ["punctuation"], "difficulty": "medium"}
+{"corrupted": "Die Vorstellung im Theater hat mir sehr gut gefallen ,", "original": "Die Vorstellung im Theater hat mir sehr gut gefallen.", "error_types": ["punctuation"], "difficulty": "medium"}
+{"corrupted": "Ich habe mir eine Erkältung eingefangen und liege in den Bett.", "original": "Ich habe mir eine Erkältung eingefangen und liege im Bett.", "error_types": ["case"], "difficulty": "medium"}
+{"corrupted": "Wir haben den ganzen Tag im Garten gearbeitet ,", "original": "Wir haben den ganzen Tag im Garten gearbeitet.", "error_types": ["punctuation"], "difficulty": "medium"}
+{"corrupted": "Sie hat eine wichtige Präsentation für der Meeting vorbereitet.", "original": "Sie hat eine wichtige Präsentation für das Meeting vorbereitet.", "error_types": ["article_case"], "difficulty": "medium"}
+{"corrupted": "Der Flug nach New York dauert etwa acht Stunden ,", "original": "Der Flug nach New York dauert etwa acht Stunden.", "error_types": ["punctuation"], "difficulty": "medium"}
+{"corrupted": "Ich lese jeden Morgen die Zeitung beim Frühstück ,", "original": "Ich lese jeden Morgen die Zeitung beim Frühstück.", "error_types": ["punctuation"], "difficulty": "medium"}
+{"corrupted": "Das Konzert wurde wegen des schlechten Wetters abgesagt ,", "original": "Das Konzert wurde wegen des schlechten Wetters abgesagt.", "error_types": ["punctuation"], "difficulty": "medium"}
+{"corrupted": "Er hat sich sehr über der Geschenk gefreut.", "original": "Er hat sich sehr über das Geschenk gefreut.", "error_types": ["article_case"], "difficulty": "medium"}
+{"corrupted": "Wir haben eine lange Fahrradtour an den Fluss entlang gemacht.", "original": "Wir haben eine lange Fahrradtour am Fluss entlang gemacht.", "error_types": ["case"], "difficulty": "medium"}
+{"corrupted": "Die neue Wohnung ist viel größer als die alte ,", "original": "Die neue Wohnung ist viel größer als die alte.", "error_types": ["punctuation"], "difficulty": "medium"}
+{"corrupted": "Ich habe vergessen die Blumen auf dem Balkon zu gießen.", "original": "Ich habe vergessen, die Blumen auf dem Balkon zu gießen.", "error_types": ["punctuation"], "difficulty": "medium"}
+{"corrupted": "Sie arbeitet als Ärztin in einen großen Krankenhaus.", "original": "Sie arbeitet als Ärztin in einem großen Krankenhaus.", "error_types": ["case"], "difficulty": "medium"}
+{"corrupted": "Der Film hat eine sehr überraschende Wendung an den Ende.", "original": "Der Film hat eine sehr überraschende Wendung am Ende.", "error_types": ["case"], "difficulty": "medium"}
+{"corrupted": "Ich trinke lieber Tee als Kaffee an den Nachmittag.", "original": "Ich trinke lieber Tee als Kaffee am Nachmittag.", "error_types": ["case"], "difficulty": "medium"}
+{"corrupted": "Wir haben ein neues Sofa für der Wohnzimmer gekauft.", "original": "Wir haben ein neues Sofa für das Wohnzimmer gekauft.", "error_types": ["article_case"], "difficulty": "medium"}
+{"corrupted": "Das Museum ist montags leider geschlossen ,", "original": "Das Museum ist montags leider geschlossen.", "error_types": ["punctuation"], "difficulty": "medium"}
+{"corrupted": "Er hat dem Marathon in einer sehr guten Zeit beendet.", "original": "Er hat den Marathon in einer sehr guten Zeit beendet.", "error_types": ["case"], "difficulty": "medium"}
+{"corrupted": "Die Suppe ist noch zu heiß zum Essen ,", "original": "Die Suppe ist noch zu heiß zum Essen.", "error_types": ["punctuation"], "difficulty": "medium"}
+{"corrupted": "Ich habe mir ein neues Rezept für Pasta ausgedacht ,", "original": "Ich habe mir ein neues Rezept für Pasta ausgedacht.", "error_types": ["punctuation"], "difficulty": "medium"}
+{"corrupted": "Wir gehen heute Abend ins Kino um dem neuen Film zu sehen.", "original": "Wir gehen heute Abend ins Kino, um den neuen Film zu sehen.", "error_types": ["case", "punctuation"], "difficulty": "medium"}
+{"corrupted": "Sie hat ein Stipendium für ihr Studium in den Ausland bekommen.", "original": "Sie hat ein Stipendium für ihr Studium im Ausland bekommen.", "error_types": ["case"], "difficulty": "medium"}
+{"corrupted": "Der Bäcker an die Ecke hat die besten Brötchen der Stadt.", "original": "Der Bäcker an der Ecke hat die besten Brötchen der Stadt.", "error_types": ["case"], "difficulty": "medium"}
+{"corrupted": "Ich muss noch schnell einkaufen gehen, bevor die Geschäfte schließen ,", "original": "Ich muss noch schnell einkaufen gehen, bevor die Geschäfte schließen.", "error_types": ["punctuation"], "difficulty": "medium"}
+{"corrupted": "Das Hotel in den wir übernachtet haben, war sehr komfortabel.", "original": "Das Hotel, in dem wir übernachtet haben, war sehr komfortabel.", "error_types": ["case", "punctuation"], "difficulty": "medium"}
+{"corrupted": "Er hat eine sehr interessante Dokumentation in den Fernsehen gesehen.", "original": "Er hat eine sehr interessante Dokumentation im Fernsehen gesehen.", "error_types": ["case"], "difficulty": "medium"}
+{"corrupted": "Die Kinder haben ein schönes Bild für ihre Mutter gemalt ,", "original": "Die Kinder haben ein schönes Bild für ihre Mutter gemalt.", "error_types": ["punctuation"], "difficulty": "medium"}
+{"corrupted": "Ich habe mich sehr über deinen Anruf gefreut ,", "original": "Ich habe mich sehr über deinen Anruf gefreut.", "error_types": ["punctuation"], "difficulty": "medium"}
+{"corrupted": "Wir haben einen langen Spaziergang am Strand gemacht ,", "original": "Wir haben einen langen Spaziergang am Strand gemacht.", "error_types": ["punctuation"], "difficulty": "medium"}
+{"corrupted": "Sie hat sich ein neues Auto gekauft, weil der alte kaputt war.", "original": "Sie hat sich ein neues Auto gekauft, weil das alte kaputt war.", "error_types": ["article_case"], "difficulty": "medium"}
+{"corrupted": "Der Vortrag des Professors war sehr informativ und spannend ,", "original": "Der Vortrag des Professors war sehr informativ und spannend.", "error_types": ["punctuation"], "difficulty": "medium"}
+{"corrupted": "Ich habe heute leider keine Zeit, um mich mit dir zu treffen ,", "original": "Ich habe heute leider keine Zeit, um mich mit dir zu treffen.", "error_types": ["punctuation"], "difficulty": "medium"}
+{"corrupted": "Das Konzertkarten waren innerhalb von wenigen Minuten ausverkauft ,", "original": "Das Konzertkarten waren innerhalb von wenigen Minuten ausverkauft.", "error_types": ["punctuation"], "difficulty": "medium"}
+{"corrupted": "Er hat ein sehr gutes Angebot für seinen alten Wagen bekommen ,", "original": "Er hat ein sehr gutes Angebot für seinen alten Wagen bekommen.", "error_types": ["punctuation"], "difficulty": "medium"}
+{"corrupted": "Die Aussicht vom Gipfel des Berges war atemberaubend ,", "original": "Die Aussicht vom Gipfel des Berges war atemberaubend.", "error_types": ["punctuation"], "difficulty": "medium"}
+{"corrupted": "Ich habe mir vorgenommen dieses Jahr mehr Sport zu treiben.", "original": "Ich habe mir vorgenommen, dieses Jahr mehr Sport zu treiben.", "error_types": ["punctuation"], "difficulty": "medium"}
+{"corrupted": "Wir haben ein sehr gemütliches Restaurant für der Abendessen gefunden.", "original": "Wir haben ein sehr gemütliches Restaurant für das Abendessen gefunden.", "error_types": ["article_case"], "difficulty": "medium"}
+{"corrupted": "Sie hat eine sehr schöne Stimme und singt im Chor ,", "original": "Sie hat eine sehr schöne Stimme und singt im Chor.", "error_types": ["punctuation"], "difficulty": "medium"}
+{"corrupted": "Der neue Kollege scheint sehr nett und hilfsbereit zu sein ,", "original": "Der neue Kollege scheint sehr nett und hilfsbereit zu sein.", "error_types": ["punctuation"], "difficulty": "medium"}
+{"corrupted": "Ich habe gestern Abend ein sehr interessantes Buch angefangen ,", "original": "Ich habe gestern Abend ein sehr interessantes Buch angefangen.", "error_types": ["punctuation"], "difficulty": "medium"}
+{"corrupted": "Das Paket auf das ich gewartet habe, ist endlich angekommen.", "original": "Das Paket, auf das ich gewartet habe, ist endlich angekommen.", "error_types": ["punctuation"], "difficulty": "medium"}
+{"corrupted": "Er hat sich bei den Unfall zum Glück nicht schwer verletzt.", "original": "Er hat sich bei dem Unfall zum Glück nicht schwer verletzt.", "error_types": ["case"], "difficulty": "medium"}
+{"corrupted": "Die Ausstellung in den Kunstmuseum war sehr beeindruckend.", "original": "Die Ausstellung im Kunstmuseum war sehr beeindruckend.", "error_types": ["case"], "difficulty": "medium"}
+{"corrupted": "Ich habe mir eine neue Jacke für dem Winter gekauft.", "original": "Ich habe mir eine neue Jacke für den Winter gekauft.", "error_types": ["case"], "difficulty": "medium"}
+{"corrupted": "Wir haben den Abend gemütlich auf den Sofa verbracht.", "original": "Wir haben den Abend gemütlich auf dem Sofa verbracht.", "error_types": ["case"], "difficulty": "medium"}
+{"corrupted": "Sie hat eine sehr gute Note in die Mathematikprüfung bekommen.", "original": "Sie hat eine sehr gute Note in der Mathematikprüfung bekommen.", "error_types": ["case"], "difficulty": "medium"}
+{"corrupted": "Der Hund hat den ganzen Tag im Garten gegraben ,", "original": "Der Hund hat den ganzen Tag im Garten gegraben.", "error_types": ["punctuation"], "difficulty": "medium"}
+{"corrupted": "Ich habe mich entschieden, einem Sprachkurs zu besuchen.", "original": "Ich habe mich entschieden, einen Sprachkurs zu besuchen.", "error_types": ["case"], "difficulty": "medium"}
+{"corrupted": "Das neue Restaurant in der Innenstadt soll sehr gut sein ,", "original": "Das neue Restaurant in der Innenstadt soll sehr gut sein.", "error_types": ["punctuation"], "difficulty": "medium"}
+{"corrupted": "Er hat mir ein sehr schönes Kompliment gemacht ,", "original": "Er hat mir ein sehr schönes Kompliment gemacht.", "error_types": ["punctuation"], "difficulty": "medium"}
+{"corrupted": "Die Reise nach Japan war ein unvergessliches Erlebnis ,", "original": "Die Reise nach Japan war ein unvergessliches Erlebnis.", "error_types": ["punctuation"], "difficulty": "medium"}
+{"corrupted": "Ich habe heute Morgen verschlafen und musste mich sehr beeilen ,", "original": "Ich habe heute Morgen verschlafen und musste mich sehr beeilen.", "error_types": ["punctuation"], "difficulty": "medium"}
+{"corrupted": "Wir haben ein sehr schönes Wochenende in den Bergen verbracht ,", "original": "Wir haben ein sehr schönes Wochenende in den Bergen verbracht.", "error_types": ["punctuation"], "difficulty": "medium"}
+{"corrupted": "Sie hat sich sehr viel Mühe mit den Kuchen gegeben.", "original": "Sie hat sich sehr viel Mühe mit dem Kuchen gegeben.", "error_types": ["case"], "difficulty": "medium"}
+{"corrupted": "Der neue Film des Regisseurs hat sehr gute Kritiken bekommen ,", "original": "Der neue Film des Regisseurs hat sehr gute Kritiken bekommen.", "error_types": ["punctuation"], "difficulty": "medium"}
+{"corrupted": "Ich habe mir ein neues Paar Laufschuhe gekauft ,", "original": "Ich habe mir ein neues Paar Laufschuhe gekauft.", "error_types": ["punctuation"], "difficulty": "medium"}
+{"corrupted": "Der alte Mann geht jeden Tag in den Park spazieren.", "original": "Der alte Mann geht jeden Tag im Park spazieren.", "error_types": ["case"], "difficulty": "medium"}
+{"corrupted": "Die Katze schläft friedlich auf den weichen Sofa.", "original": "Die Katze schläft friedlich auf dem weichen Sofa.", "error_types": ["case"], "difficulty": "medium"}
+{"corrupted": "Wir haben gestern ein sehr interessantes Buch gelesen ,", "original": "Wir haben gestern ein sehr interessantes Buch gelesen.", "error_types": ["punctuation"], "difficulty": "medium"}
+{"corrupted": "Wenn es morgen regnet, bleiben wir zu Hause ,", "original": "Wenn es morgen regnet, bleiben wir zu Hause.", "error_types": ["punctuation"], "difficulty": "medium"}
+{"corrupted": "Das kleine Kind spielt mit sein neuen Ball.", "original": "Das kleine Kind spielt mit seinem neuen Ball.", "error_types": ["possessive_pronoun_case"], "difficulty": "medium"}

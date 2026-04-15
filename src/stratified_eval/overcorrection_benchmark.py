@@ -12,7 +12,7 @@ This is crucial for GEC safety:
 import json
 from dataclasses import dataclass
 from typing import Optional
-from ollama import chat, ChatResponse
+from src.inference import correct_text_latest
 
 
 @dataclass
@@ -50,17 +50,7 @@ def measure_fpr(
         sentence = item["original"]
 
         try:
-            response: ChatResponse = chat(
-                model=model,
-                messages=[
-                    {
-                        "role": "user",
-                        "content": sentence,
-                    },
-                ],
-            )
-
-            model_output = response["message"]["content"].strip()
+            model_output = correct_text_latest(model, sentence).strip()
 
             is_modified = _detect_modification(
                 sentence, model_output, modification_threshold

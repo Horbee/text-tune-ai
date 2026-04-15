@@ -12,12 +12,14 @@ parser = argparse.ArgumentParser(
 
 parser.add_argument(
     "--model",
+    "-m",
     type=str,
     required=True,
     help="Name of the Ollama model to use, e.g., ministral-3:8b",
 )
 parser.add_argument(
     "--input",
+    "-i",
     type=str,
     required=True,
     help="Path to the input JSONL file, e.g., train-v7.jsonl",

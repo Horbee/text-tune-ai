@@ -1,0 +1,100 @@
+{"corrupted": "Das Kind spielen im Garten.", "original": "Das Kind spielt im Garten.", "error_types": ["subject-verb_agreement"], "difficulty": "easy"}
+{"corrupted": "Ich geht morgen einkaufen.", "original": "Ich gehe morgen einkaufen.", "error_types": ["verb_conjugation"], "difficulty": "easy"}
+{"corrupted": "Der hund ist sehr groß.", "original": "Der Hund ist sehr groß.", "error_types": ["capitalization"], "difficulty": "easy"}
+{"corrupted": "Sie habe einen hund.", "original": "Sie hat einen Hund.", "error_types": ["verb_conjugation", "capitalization"], "difficulty": "easy"}
+{"corrupted": "Wir spielen Fussball morgen.", "original": "Wir spielen Fußball morgen.", "error_types": ["orthography"], "difficulty": "easy"}
+{"corrupted": "Das ist eine gute idee.", "original": "Das ist eine gute Idee.", "error_types": ["capitalization"], "difficulty": "easy"}
+{"corrupted": "Ich kann nicht kommen weil ich krank bin.", "original": "Ich kann nicht kommen, weil ich krank bin.", "error_types": ["punctuation"], "difficulty": "easy"}
+{"corrupted": "Er ist ein gut mann.", "original": "Er ist ein guter Mann.", "error_types": ["adjective_ending"], "difficulty": "easy"}
+{"corrupted": "Die katze schlaft auf dem sofa.", "original": "Die Katze schläft auf dem Sofa.", "error_types": ["capitalization", "orthography"], "difficulty": "easy"}
+{"corrupted": "Wir haben viele schöne erinnerungen.", "original": "Wir haben viele schöne Erinnerungen.", "error_types": ["capitalization"], "difficulty": "easy"}
+{"corrupted": "Er lesst das Buch.", "original": "Er liest das Buch.", "error_types": ["orthography"], "difficulty": "easy"}
+{"corrupted": "Ich habe hunger.", "original": "Ich habe Hunger.", "error_types": ["capitalization"], "difficulty": "easy"}
+{"corrupted": "Das kind spielt mit der puppe.", "original": "Das Kind spielt mit der Puppe.", "error_types": ["capitalization"], "difficulty": "easy"}
+{"corrupted": "Sie gehen zur schule.", "original": "Sie gehen zur Schule.", "error_types": ["capitalization"], "difficulty": "easy"}
+{"corrupted": "Ich mag die blumen.", "original": "Ich mag die Blumen.", "error_types": ["capitalization"], "difficulty": "easy"}
+{"corrupted": "Der alte mann geht jedt Tag im Park spaziren.", "original": "Der alte Mann geht jeden Tag im Park spazieren.", "error_types": ["verb_conjugation", "orthography", "capitalization"], "difficulty": "easy"}
+{"corrupted": "die Katze schläft friedlich auf dem weichen Sofa.", "original": "Die Katze schläft friedlich auf dem weichen Sofa.", "error_types": ["capitalization"], "difficulty": "easy"}
+{"corrupted": "Wir habt gestern ein sehr interesantes buch gelesen.", "original": "Wir haben gestern ein sehr interessantes Buch gelesen.", "error_types": ["verb_conjugation", "orthography", "capitalization"], "difficulty": "easy"}
+{"corrupted": "Wenn es morgt regnet, bleiben wir zu Hause.", "original": "Wenn es morgen regnet, bleiben wir zu Hause.", "error_types": ["verb_conjugation"], "difficulty": "easy"}
+{"corrupted": "Das kleine kind spilen mit seinem neuen Ball.", "original": "Das kleine Kind spielt mit seinem neuen Ball.", "error_types": ["verb_conjugation", "orthography", "capitalization"], "difficulty": "easy"}
+{"corrupted": "Ich freue mich auf den urlaub in den Bergen.", "original": "Ich freue mich auf den Urlaub in den Bergen.", "error_types": ["capitalization"], "difficulty": "easy"}
+{"corrupted": "Si hat mir einen langen brief geschrieben.", "original": "Sie hat mir einen langen Brief geschrieben.", "error_types": ["orthography", "capitalization"], "difficulty": "easy"}
+{"corrupted": "Der hund bellt laut, wenn jemand an der Tür klingelt.", "original": "Der Hund bellt laut, wenn jemand an der Tür klingelt.", "error_types": ["capitalization"], "difficulty": "easy"}
+{"corrupted": "Mein bruder arbeitet als Ingeniur in einer großen Firma.", "original": "Mein Bruder arbeitet als Ingenieur in einer großen Firma.", "error_types": ["orthography", "capitalization"], "difficulty": "easy"}
+{"corrupted": "Wir müsen uns beeilen, um den zug nicht zu verpassen.", "original": "Wir müssen uns beeilen, um den Zug nicht zu verpassen.", "error_types": ["orthography", "capitalization"], "difficulty": "easy"}
+{"corrupted": "Das esst in disem Restaurant schmeckt wirklich hervorragend.", "original": "Das Essen in diesem Restaurant schmeckt wirklich hervorragend.", "error_types": ["verb_conjugation", "orthography", "capitalization"], "difficulty": "easy"}
+{"corrupted": "Er hat vergesen, seine hausaufgabt zu machen.", "original": "Er hat vergessen, seine Hausaufgaben zu machen.", "error_types": ["verb_conjugation", "orthography", "capitalization"], "difficulty": "easy"}
+{"corrupted": "Die sonne scheint hell am blauen Himmel.", "original": "Die Sonne scheint hell am blauen Himmel.", "error_types": ["capitalization"], "difficulty": "easy"}
+{"corrupted": "Ich trinke jeden morgen eine Tase schwarzen Kaffee.", "original": "Ich trinke jeden Morgen eine Tasse schwarzen Kaffee.", "error_types": ["orthography", "capitalization"], "difficulty": "easy"}
+{"corrupted": "Das auto meines Vaters ist gestern kaputt gegangen.", "original": "Das Auto meines Vaters ist gestern kaputt gegangen.", "error_types": ["capitalization"], "difficulty": "easy"}
+{"corrupted": "Wir plant eine reise nach Italin im nächsten Sommer.", "original": "Wir planen eine Reise nach Italien im nächsten Sommer.", "error_types": ["verb_conjugation", "orthography", "capitalization"], "difficulty": "easy"}
+{"corrupted": "die Lehrerin erklärt den Schülern die schwierige Aufgabe.", "original": "Die Lehrerin erklärt den Schülern die schwierige Aufgabe.", "error_types": ["capitalization"], "difficulty": "easy"}
+{"corrupted": "Er liest gerne spannende romane vor dem Einschlafen.", "original": "Er liest gerne spannende Romane vor dem Einschlafen.", "error_types": ["capitalization"], "difficulty": "easy"}
+{"corrupted": "Das konzert gestern Abend war ein voller Erfolg.", "original": "Das Konzert gestern Abend war ein voller Erfolg.", "error_types": ["capitalization"], "difficulty": "easy"}
+{"corrupted": "Ich habe meine schlüssel auf dem Tisch liegt lassen.", "original": "Ich habe meine Schlüssel auf dem Tisch liegen lassen.", "error_types": ["verb_conjugation", "capitalization"], "difficulty": "easy"}
+{"corrupted": "Di blumen im Garten blühen in vielen bunten Farben.", "original": "Die Blumen im Garten blühen in vielen bunten Farben.", "error_types": ["orthography", "capitalization"], "difficulty": "easy"}
+{"corrupted": "Wir gehen am wochenende oft im Wald wandern.", "original": "Wir gehen am Wochenende oft im Wald wandern.", "error_types": ["capitalization"], "difficulty": "easy"}
+{"corrupted": "Sie spricht fließend englisch und Französisch.", "original": "Sie spricht fließend Englisch und Französisch.", "error_types": ["capitalization"], "difficulty": "easy"}
+{"corrupted": "Der Film, den wir geseht haben, war sehr lustig.", "original": "Der Film, den wir gesehen haben, war sehr lustig.", "error_types": ["verb_conjugation"], "difficulty": "easy"}
+{"corrupted": "ich brauche eine neue Brille, weil ich schlecht sehe.", "original": "Ich brauche eine neue Brille, weil ich schlecht sehe.", "error_types": ["capitalization"], "difficulty": "easy"}
+{"corrupted": "Das museum bietet eine interessante Ausstellung über Kunst.", "original": "Das Museum bietet eine interessante Ausstellung über Kunst.", "error_types": ["capitalization"], "difficulty": "easy"}
+{"corrupted": "Er hat sich ein neues fahrrad gekauft.", "original": "Er hat sich ein neues Fahrrad gekauft.", "error_types": ["capitalization"], "difficulty": "easy"}
+{"corrupted": "Wir treffen uns heute abend mit Freunden im Café.", "original": "Wir treffen uns heute Abend mit Freunden im Café.", "error_types": ["capitalization"], "difficulty": "easy"}
+{"corrupted": "Die prüfung war viel schwerer als ich erwartet hatte.", "original": "Die Prüfung war viel schwerer als ich erwartet hatte.", "error_types": ["capitalization"], "difficulty": "easy"}
+{"corrupted": "Ich höre gerne klasische musik beim Arbeiten.", "original": "Ich höre gerne klassische Musik beim Arbeiten.", "error_types": ["orthography", "capitalization"], "difficulty": "easy"}
+{"corrupted": "das Wetter ist heute perfekt für einen Ausflug.", "original": "Das Wetter ist heute perfekt für einen Ausflug.", "error_types": ["capitalization"], "difficulty": "easy"}
+{"corrupted": "sie hat ein wunderschönes Kleid für die Party gekauft.", "original": "Sie hat ein wunderschönes Kleid für die Party gekauft.", "error_types": ["capitalization"], "difficulty": "easy"}
+{"corrupted": "Der zug hatte leider eine halbe Stunde Verspätung.", "original": "Der Zug hatte leider eine halbe Stunde Verspätung.", "error_types": ["capitalization"], "difficulty": "easy"}
+{"corrupted": "ich koche heute Abend ein leckeres Abendessen für uns.", "original": "Ich koche heute Abend ein leckeres Abendessen für uns.", "error_types": ["capitalization"], "difficulty": "easy"}
+{"corrupted": "die Kinder spielen fröhlich auf dem Spielplatz.", "original": "Die Kinder spielen fröhlich auf dem Spielplatz.", "error_types": ["capitalization"], "difficulty": "easy"}
+{"corrupted": "Er hat mir geholfen, den schwert schrank zu tragen.", "original": "Er hat mir geholfen, den schweren Schrank zu tragen.", "error_types": ["verb_conjugation", "capitalization"], "difficulty": "easy"}
+{"corrupted": "Wir haben ein kleines haus am Rand der Stadt gemietet.", "original": "Wir haben ein kleines Haus am Rand der Stadt gemietet.", "error_types": ["capitalization"], "difficulty": "easy"}
+{"corrupted": "Ich mus morgen früh aufstehen, um zur arbeit zu gehen.", "original": "Ich muss morgen früh aufstehen, um zur Arbeit zu gehen.", "error_types": ["orthography", "capitalization"], "difficulty": "easy"}
+{"corrupted": "das Buch, das du mir geliehen hast, ist sehr spannend.", "original": "Das Buch, das du mir geliehen hast, ist sehr spannend.", "error_types": ["capitalization"], "difficulty": "easy"}
+{"corrupted": "Sie lernen seit drei jahren fleißig Spanisch.", "original": "Sie lernt seit drei Jahren fleißig Spanisch.", "error_types": ["verb_conjugation", "capitalization"], "difficulty": "easy"}
+{"corrupted": "Der Kuchen, den meine oma gebaken hat, schmeckt köstlich.", "original": "Der Kuchen, den meine Oma gebacken hat, schmeckt köstlich.", "error_types": ["orthography", "capitalization"], "difficulty": "easy"}
+{"corrupted": "ich habe gestern einen alten Freund auf der Straße getroffen.", "original": "Ich habe gestern einen alten Freund auf der Straße getroffen.", "error_types": ["capitalization"], "difficulty": "easy"}
+{"corrupted": "Wir verbringen unseren urlaub dieses Jahr am Meer.", "original": "Wir verbringen unseren Urlaub dieses Jahr am Meer.", "error_types": ["capitalization"], "difficulty": "easy"}
+{"corrupted": "Das neue smartphone hat eine sehr gute Kamera.", "original": "Das neue Smartphone hat eine sehr gute Kamera.", "error_types": ["capitalization"], "difficulty": "easy"}
+{"corrupted": "Er spilen jeden Dienstagabend Fußball mit seinen Kollegen.", "original": "Er spielt jeden Dienstagabend Fußball mit seinen Kollegen.", "error_types": ["verb_conjugation", "orthography"], "difficulty": "easy"}
+{"corrupted": "Die vorstellung im Theater hat mir sehr gut gefallen.", "original": "Die Vorstellung im Theater hat mir sehr gut gefallen.", "error_types": ["capitalization"], "difficulty": "easy"}
+{"corrupted": "Ich habe mir eine Erkältung eingefangen und lige im Bett.", "original": "Ich habe mir eine Erkältung eingefangen und liege im Bett.", "error_types": ["orthography"], "difficulty": "easy"}
+{"corrupted": "Wir haben den ganzen tag im Garten gearbeitet.", "original": "Wir haben den ganzen Tag im Garten gearbeitet.", "error_types": ["capitalization"], "difficulty": "easy"}
+{"corrupted": "Si hat eine wichtige Präsentation für das Meeting vorbereitet.", "original": "Sie hat eine wichtige Präsentation für das Meeting vorbereitet.", "error_types": ["orthography"], "difficulty": "easy"}
+{"corrupted": "Der flug nach New York dauert etwa acht Stunden.", "original": "Der Flug nach New York dauert etwa acht Stunden.", "error_types": ["capitalization"], "difficulty": "easy"}
+{"corrupted": "Ich lese jeden morgen die Zeitung beim Frühstück.", "original": "Ich lese jeden Morgen die Zeitung beim Frühstück.", "error_types": ["capitalization"], "difficulty": "easy"}
+{"corrupted": "Das konzert wurde wegen des schlechten Wetters abgesagt.", "original": "Das Konzert wurde wegen des schlechten Wetters abgesagt.", "error_types": ["capitalization"], "difficulty": "easy"}
+{"corrupted": "er hat sich sehr über das Geschenk gefreut.", "original": "Er hat sich sehr über das Geschenk gefreut.", "error_types": ["capitalization"], "difficulty": "easy"}
+{"corrupted": "Wir haben eine lange fahrradtour am Flus entlang gemacht.", "original": "Wir haben eine lange Fahrradtour am Fluss entlang gemacht.", "error_types": ["orthography", "capitalization"], "difficulty": "easy"}
+{"corrupted": "Di neue Wohnung ist viel größer als die alte.", "original": "Die neue Wohnung ist viel größer als die alte.", "error_types": ["orthography"], "difficulty": "easy"}
+{"corrupted": "Ich habe vergessen, die blumen auf dem Balkon zu gießen.", "original": "Ich habe vergessen, die Blumen auf dem Balkon zu gießen.", "error_types": ["capitalization"], "difficulty": "easy"}
+{"corrupted": "Si arbeitet als ärztin in einem großen Krankenhaus.", "original": "Sie arbeitet als Ärztin in einem großen Krankenhaus.", "error_types": ["orthography", "capitalization"], "difficulty": "easy"}
+{"corrupted": "Der film hat eine sehr überraschende Wendung am Ende.", "original": "Der Film hat eine sehr überraschende Wendung am Ende.", "error_types": ["capitalization"], "difficulty": "easy"}
+{"corrupted": "Ich trinke liber Tee als Kaffee am Nachmittag.", "original": "Ich trinke lieber Tee als Kaffee am Nachmittag.", "error_types": ["orthography"], "difficulty": "easy"}
+{"corrupted": "Wir habt ein neues sofa für das Wohnzimmer gekauft.", "original": "Wir haben ein neues Sofa für das Wohnzimmer gekauft.", "error_types": ["verb_conjugation", "capitalization"], "difficulty": "easy"}
+{"corrupted": "Das museum ist montags leider geschlosen.", "original": "Das Museum ist montags leider geschlossen.", "error_types": ["orthography", "capitalization"], "difficulty": "easy"}
+{"corrupted": "Er hat den marathon in einer sehr guten Zeit beendet.", "original": "Er hat den Marathon in einer sehr guten Zeit beendet.", "error_types": ["capitalization"], "difficulty": "easy"}
+{"corrupted": "Die suppe ist noch zu heiß zum Essen.", "original": "Die Suppe ist noch zu heiß zum Essen.", "error_types": ["capitalization"], "difficulty": "easy"}
+{"corrupted": "ich habe mir ein neues Rezept für Pasta ausgedacht.", "original": "Ich habe mir ein neues Rezept für Pasta ausgedacht.", "error_types": ["capitalization"], "difficulty": "easy"}
+{"corrupted": "Wir gehen heute abend ins Kino, um den neuen Film zu sehen.", "original": "Wir gehen heute Abend ins Kino, um den neuen Film zu sehen.", "error_types": ["capitalization"], "difficulty": "easy"}
+{"corrupted": "Si hat ein Stipendium für ihr Studium im Ausland bekommen.", "original": "Sie hat ein Stipendium für ihr Studium im Ausland bekommen.", "error_types": ["orthography"], "difficulty": "easy"}
+{"corrupted": "Der bäcker an der Ecke hat di besten Brötchen der Stadt.", "original": "Der Bäcker an der Ecke hat die besten Brötchen der Stadt.", "error_types": ["orthography", "capitalization"], "difficulty": "easy"}
+{"corrupted": "Ich muss noch schnell einkaufen gehen, bevor di geschäfte schließen.", "original": "Ich muss noch schnell einkaufen gehen, bevor die Geschäfte schließen.", "error_types": ["orthography", "capitalization"], "difficulty": "easy"}
+{"corrupted": "das Hotel, in dem wir übernachtet haben, war sehr komfortabel.", "original": "Das Hotel, in dem wir übernachtet haben, war sehr komfortabel.", "error_types": ["capitalization"], "difficulty": "easy"}
+{"corrupted": "Er hat eine sehr interessante dokumentation im Fernsehen gesehen.", "original": "Er hat eine sehr interessante Dokumentation im Fernsehen gesehen.", "error_types": ["capitalization"], "difficulty": "easy"}
+{"corrupted": "Die kinder haben ein schönes Bild für ihre Mutter gemalt.", "original": "Die Kinder haben ein schönes Bild für ihre Mutter gemalt.", "error_types": ["capitalization"], "difficulty": "easy"}
+{"corrupted": "Ich habe mich sehr über deint anruf gefreut.", "original": "Ich habe mich sehr über deinen Anruf gefreut.", "error_types": ["verb_conjugation", "capitalization"], "difficulty": "easy"}
+{"corrupted": "Wir haben einen langen spazirgang am Strand gemacht.", "original": "Wir haben einen langen Spaziergang am Strand gemacht.", "error_types": ["orthography", "capitalization"], "difficulty": "easy"}
+{"corrupted": "Si hat sich ein neues auto gekauft, weil das alte kaputt war.", "original": "Sie hat sich ein neues Auto gekauft, weil das alte kaputt war.", "error_types": ["orthography", "capitalization"], "difficulty": "easy"}
+{"corrupted": "Der vortrag des Professors war sehr informativ und spannend.", "original": "Der Vortrag des Professors war sehr informativ und spannend.", "error_types": ["capitalization"], "difficulty": "easy"}
+{"corrupted": "ich habe heute leider keine Zeit, um mich mit dir zu treffen.", "original": "Ich habe heute leider keine Zeit, um mich mit dir zu treffen.", "error_types": ["capitalization"], "difficulty": "easy"}
+{"corrupted": "Das konzertkarten waren innerhalb von wenigen Minuten ausverkauft.", "original": "Das Konzertkarten waren innerhalb von wenigen Minuten ausverkauft.", "error_types": ["capitalization"], "difficulty": "easy"}
+{"corrupted": "Er hat ein sehr gutes angebot für seinen alten Wagen bekommen.", "original": "Er hat ein sehr gutes Angebot für seinen alten Wagen bekommen.", "error_types": ["capitalization"], "difficulty": "easy"}
+{"corrupted": "Di aussicht vom Gipfel des Berges war atemberaubend.", "original": "Die Aussicht vom Gipfel des Berges war atemberaubend.", "error_types": ["orthography", "capitalization"], "difficulty": "easy"}
+{"corrupted": "Ich habe mir vorgenommen, dises Jahr mehr Sport zu treiben.", "original": "Ich habe mir vorgenommen, dieses Jahr mehr Sport zu treiben.", "error_types": ["orthography"], "difficulty": "easy"}
+{"corrupted": "wir haben ein sehr gemütliches Restaurant für das Abendessen gefunden.", "original": "Wir haben ein sehr gemütliches Restaurant für das Abendessen gefunden.", "error_types": ["capitalization"], "difficulty": "easy"}
+{"corrupted": "Sie hat eine sehr schöne stimme und singt im Chor.", "original": "Sie hat eine sehr schöne Stimme und singt im Chor.", "error_types": ["capitalization"], "difficulty": "easy"}
+{"corrupted": "Der neue kollege scheint sehr nett und hilfsbereit zu sein.", "original": "Der neue Kollege scheint sehr nett und hilfsbereit zu sein.", "error_types": ["capitalization"], "difficulty": "easy"}
+{"corrupted": "ich habe gestern Abend ein sehr interessantes Buch angefangen.", "original": "Ich habe gestern Abend ein sehr interessantes Buch angefangen.", "error_types": ["capitalization"], "difficulty": "easy"}
+{"corrupted": "das Paket, auf das ich gewartet habe, ist endlich angekommen.", "original": "Das Paket, auf das ich gewartet habe, ist endlich angekommen.", "error_types": ["capitalization"], "difficulty": "easy"}

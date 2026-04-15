@@ -1,0 +1,100 @@
+{"corrupted": "Gestern habe ich see you tomorrow gesagt.", "original": "Gestern habe ich gesagt, dass ich dich morgen sehe.", "error_types": ["word_order", "tense_mixing", "language_mixing"], "difficulty": "hard"}
+{"corrupted": "Wenn ich Zeit gehabt habe, ich hatte das Buch gelesen.", "original": "Wenn ich Zeit gehabt hätte, hätte ich das Buch gelesen.", "error_types": ["subjunctive", "word_order"], "difficulty": "hard"}
+{"corrupted": "Er wurde gesagt dass das Kind krank ist.", "original": "Ihm wurde gesagt, dass das Kind krank ist.", "error_types": ["passive_voice", "word_order"], "difficulty": "hard"}
+{"corrupted": "Ich wunschte dass ich dahaime fleissig gearbeitet habe.", "original": "Ich wünschte, dass ich dauerhaft fleißig gearbeitet hätte.", "error_types": ["orthography", "subjunctive", "tense"], "difficulty": "hard"}
+{"corrupted": "Obwohl er war mude, hat er weitergearbeitet.", "original": "Obwohl er müde war, hat er weitergearbeitet.", "error_types": ["word_order", "adjective_decline"], "difficulty": "hard"}
+{"corrupted": "Der Mann der gestern kam und das Essen brachte ist mein Vater.", "original": "Der Mann, der gestern kam und das Essen brachte, ist mein Vater.", "error_types": ["relative_clause_comma", "word_order"], "difficulty": "hard"}
+{"corrupted": "Ich habe gelernt dass wenn man fleissig ist dass man dann Erfolg hat.", "original": "Ich habe gelernt, dass man Erfolg hat, wenn man fleißig ist.", "error_types": ["nested_clauses", "word_order"], "difficulty": "hard"}
+{"corrupted": "Der hund ist geloffen worden gestern im park.", "original": "Der Hund ist gestern im Park gelaufen worden.", "error_types": ["passive_voice", "word_order", "capitalization"], "difficulty": "hard"}
+{"corrupted": "Weil er hat nicht kommen konnen weil er war krank.", "original": "Weil er nicht hat kommen können, weil er krank war.", "error_types": ["word_order", "infinitive_construction"], "difficulty": "hard"}
+{"corrupted": "Das ist die katze von dem nachbar die immer auf dem dach schlaft.", "original": "Das ist die Katze von dem Nachbarn, die immer auf dem Dach schläft.", "error_types": ["capitalization", "relative_clause"], "difficulty": "hard"}
+{"corrupted": "Er hat gesagt dass er wird kommen hatte morgen.", "original": "Er hat gesagt, dass er morgen kommen würde.", "error_types": ["word_order", "tense", "subjunctive"], "difficulty": "hard"}
+{"corrupted": "Die Kinder haben been ge-schpeelt den ganze tag.", "original": "Die Kinder haben den ganzen Tag gespielt.", "error_types": ["language_mixing", "orthography", "word_order"], "difficulty": "hard"}
+{"corrupted": "Wenn ich reich bin wurde ich ein haus kaufen.", "original": "Wenn ich reich wäre, würde ich ein Haus kaufen.", "error_types": ["subjunctive", "word_order"], "difficulty": "hard"}
+{"corrupted": "Ich habe nichts tun konnen weil ich muss arbeiten.", "original": "Ich habe nichts tun können, weil ich arbeiten musste.", "error_types": ["infinitive_construction", "tense"], "difficulty": "hard"}
+{"corrupted": "Der professor erklart dass die studenten gelernt haben mussen fur die prufung.", "original": "Der Professor erklärt, dass die Studenten für die Prüfung lernen mussten.", "error_types": ["word_order", "tense", "orthography"], "difficulty": "hard"}
+{"corrupted": "Der Kuchen, den meine Oma gebacken hat, köstlich. schmeckt", "original": "Der Kuchen, den meine Oma gebacken hat, schmeckt köstlich.", "error_types": ["word_order"], "difficulty": "hard"}
+{"corrupted": "Ich habe gestern einen alten Freund auf der getroffen. Straße", "original": "Ich habe gestern einen alten Freund auf der Straße getroffen.", "error_types": ["word_order"], "difficulty": "hard"}
+{"corrupted": "Wir verbringen unseren Urlaub dieses Jahr Meer. am", "original": "Wir verbringen unseren Urlaub dieses Jahr am Meer.", "error_types": ["word_order"], "difficulty": "hard"}
+{"corrupted": "Das neue Smartphone hat eine sehr Kamera. gute", "original": "Das neue Smartphone hat eine sehr gute Kamera.", "error_types": ["word_order"], "difficulty": "hard"}
+{"corrupted": "Er spielt jeden Dienstagabend Fußball mit Kollegen. seinen", "original": "Er spielt jeden Dienstagabend Fußball mit seinen Kollegen.", "error_types": ["word_order"], "difficulty": "hard"}
+{"corrupted": "Die Vorstellung im Theater hat mir sehr gefallen. gut", "original": "Die Vorstellung im Theater hat mir sehr gut gefallen.", "error_types": ["word_order"], "difficulty": "hard"}
+{"corrupted": "Ich habe mir eine Erkältung eingefangen und liege Bett. im", "original": "Ich habe mir eine Erkältung eingefangen und liege im Bett.", "error_types": ["word_order"], "difficulty": "hard"}
+{"corrupted": "Wir den haben ganzen Tag im Garten gearbeitet.", "original": "Wir haben den ganzen Tag im Garten gearbeitet.", "error_types": ["word_order"], "difficulty": "hard"}
+{"corrupted": "Sie hat eine wichtige Präsentation für das vorbereitet. Meeting", "original": "Sie hat eine wichtige Präsentation für das Meeting vorbereitet.", "error_types": ["word_order"], "difficulty": "hard"}
+{"corrupted": "Der Flug nach New York dauert etwa Stunden. acht", "original": "Der Flug nach New York dauert etwa acht Stunden.", "error_types": ["word_order"], "difficulty": "hard"}
+{"corrupted": "Ich lese jeden Morgen die Zeitung Frühstück. beim", "original": "Ich lese jeden Morgen die Zeitung beim Frühstück.", "error_types": ["word_order"], "difficulty": "hard"}
+{"corrupted": "Das wurde Konzert wegen des schlechten Wetters abgesagt.", "original": "Das Konzert wurde wegen des schlechten Wetters abgesagt.", "error_types": ["word_order"], "difficulty": "hard"}
+{"corrupted": "Er sich hat sehr über das Geschenk gefreut.", "original": "Er hat sich sehr über das Geschenk gefreut.", "error_types": ["word_order"], "difficulty": "hard"}
+{"corrupted": "Wir haben eine lange Fahrradtour am Fluss gemacht. entlang", "original": "Wir haben eine lange Fahrradtour am Fluss entlang gemacht.", "error_types": ["word_order"], "difficulty": "hard"}
+{"corrupted": "Die neue Wohnung ist viel größer als alte. die", "original": "Die neue Wohnung ist viel größer als die alte.", "error_types": ["word_order"], "difficulty": "hard"}
+{"corrupted": "Ich habe vergessen, die Blumen auf dem Balkon gießen. zu", "original": "Ich habe vergessen, die Blumen auf dem Balkon zu gießen.", "error_types": ["word_order"], "difficulty": "hard"}
+{"corrupted": "Sie als arbeitet Ärztin in einem großen Krankenhaus.", "original": "Sie arbeitet als Ärztin in einem großen Krankenhaus.", "error_types": ["word_order"], "difficulty": "hard"}
+{"corrupted": "Der Film hat eine sehr überraschende Wendung Ende. am", "original": "Der Film hat eine sehr überraschende Wendung am Ende.", "error_types": ["word_order"], "difficulty": "hard"}
+{"corrupted": "Ich trinke lieber Tee als Kaffee Nachmittag. am", "original": "Ich trinke lieber Tee als Kaffee am Nachmittag.", "error_types": ["word_order"], "difficulty": "hard"}
+{"corrupted": "Wir ein haben neues Sofa für das Wohnzimmer gekauft.", "original": "Wir haben ein neues Sofa für das Wohnzimmer gekauft.", "error_types": ["word_order"], "difficulty": "hard"}
+{"corrupted": "Das Museum ist montags geschlossen. leider", "original": "Das Museum ist montags leider geschlossen.", "error_types": ["word_order"], "difficulty": "hard"}
+{"corrupted": "Er hat den Marathon in einer sehr guten beendet. Zeit", "original": "Er hat den Marathon in einer sehr guten Zeit beendet.", "error_types": ["word_order"], "difficulty": "hard"}
+{"corrupted": "Die Suppe ist noch zu heiß Essen. zum", "original": "Die Suppe ist noch zu heiß zum Essen.", "error_types": ["word_order"], "difficulty": "hard"}
+{"corrupted": "Ich habe mir ein neues Rezept für ausgedacht. Pasta", "original": "Ich habe mir ein neues Rezept für Pasta ausgedacht.", "error_types": ["word_order"], "difficulty": "hard"}
+{"corrupted": "Wir heute gehen Abend ins Kino, um den neuen Film zu sehen.", "original": "Wir gehen heute Abend ins Kino, um den neuen Film zu sehen.", "error_types": ["word_order"], "difficulty": "hard"}
+{"corrupted": "Sie hat ein Stipendium für ihr Studium im bekommen. Ausland", "original": "Sie hat ein Stipendium für ihr Studium im Ausland bekommen.", "error_types": ["word_order"], "difficulty": "hard"}
+{"corrupted": "Der Bäcker an der Ecke hat die besten Brötchen Stadt. der", "original": "Der Bäcker an der Ecke hat die besten Brötchen der Stadt.", "error_types": ["word_order"], "difficulty": "hard"}
+{"corrupted": "Ich noch muss schnell einkaufen gehen, bevor die Geschäfte schließen.", "original": "Ich muss noch schnell einkaufen gehen, bevor die Geschäfte schließen.", "error_types": ["word_order"], "difficulty": "hard"}
+{"corrupted": "Das Hotel, in dem wir übernachtet haben, war komfortabel. sehr", "original": "Das Hotel, in dem wir übernachtet haben, war sehr komfortabel.", "error_types": ["word_order"], "difficulty": "hard"}
+{"corrupted": "Er hat eine sehr interessante Dokumentation im gesehen. Fernsehen", "original": "Er hat eine sehr interessante Dokumentation im Fernsehen gesehen.", "error_types": ["word_order"], "difficulty": "hard"}
+{"corrupted": "Die Kinder haben ein schönes Bild für ihre gemalt. Mutter", "original": "Die Kinder haben ein schönes Bild für ihre Mutter gemalt.", "error_types": ["word_order"], "difficulty": "hard"}
+{"corrupted": "Ich habe mich sehr über deinen gefreut. Anruf", "original": "Ich habe mich sehr über deinen Anruf gefreut.", "error_types": ["word_order"], "difficulty": "hard"}
+{"corrupted": "Wir einen haben langen Spaziergang am Strand gemacht.", "original": "Wir haben einen langen Spaziergang am Strand gemacht.", "error_types": ["word_order"], "difficulty": "hard"}
+{"corrupted": "Sie hat sich ein neues Auto gekauft, weil war das alte kaputt.", "original": "Sie hat sich ein neues Auto gekauft, weil das alte kaputt war.", "error_types": ["word_order"], "difficulty": "hard"}
+{"corrupted": "Der des Vortrag Professors war sehr informativ und spannend.", "original": "Der Vortrag des Professors war sehr informativ und spannend.", "error_types": ["word_order"], "difficulty": "hard"}
+{"corrupted": "Ich habe heute leider keine Zeit, um mich mit dir treffen. zu", "original": "Ich habe heute leider keine Zeit, um mich mit dir zu treffen.", "error_types": ["word_order"], "difficulty": "hard"}
+{"corrupted": "Das Konzertkarten waren innerhalb von wenigen ausverkauft. Minuten", "original": "Das Konzertkarten waren innerhalb von wenigen Minuten ausverkauft.", "error_types": ["word_order"], "difficulty": "hard"}
+{"corrupted": "Er hat ein sehr gutes Angebot für seinen alten bekommen. Wagen", "original": "Er hat ein sehr gutes Angebot für seinen alten Wagen bekommen.", "error_types": ["word_order"], "difficulty": "hard"}
+{"corrupted": "Die vom Aussicht Gipfel des Berges war atemberaubend.", "original": "Die Aussicht vom Gipfel des Berges war atemberaubend.", "error_types": ["word_order"], "difficulty": "hard"}
+{"corrupted": "Ich mir habe vorgenommen, dieses Jahr mehr Sport zu treiben.", "original": "Ich habe mir vorgenommen, dieses Jahr mehr Sport zu treiben.", "error_types": ["word_order"], "difficulty": "hard"}
+{"corrupted": "Wir haben ein sehr gemütliches Restaurant für das gefunden. Abendessen", "original": "Wir haben ein sehr gemütliches Restaurant für das Abendessen gefunden.", "error_types": ["word_order"], "difficulty": "hard"}
+{"corrupted": "Sie hat eine sehr schöne Stimme und singt Chor. im", "original": "Sie hat eine sehr schöne Stimme und singt im Chor.", "error_types": ["word_order"], "difficulty": "hard"}
+{"corrupted": "Der neue Kollege scheint sehr nett und hilfsbereit sein. zu", "original": "Der neue Kollege scheint sehr nett und hilfsbereit zu sein.", "error_types": ["word_order"], "difficulty": "hard"}
+{"corrupted": "Ich habe gestern Abend ein sehr interessantes angefangen. Buch", "original": "Ich habe gestern Abend ein sehr interessantes Buch angefangen.", "error_types": ["word_order"], "difficulty": "hard"}
+{"corrupted": "Das Paket, auf das ich gewartet habe, ist angekommen. endlich", "original": "Das Paket, auf das ich gewartet habe, ist endlich angekommen.", "error_types": ["word_order"], "difficulty": "hard"}
+{"corrupted": "Er sich hat bei dem Unfall zum Glück nicht schwer verletzt.", "original": "Er hat sich bei dem Unfall zum Glück nicht schwer verletzt.", "error_types": ["word_order"], "difficulty": "hard"}
+{"corrupted": "Die Ausstellung im Kunstmuseum war beeindruckend. sehr", "original": "Die Ausstellung im Kunstmuseum war sehr beeindruckend.", "error_types": ["word_order"], "difficulty": "hard"}
+{"corrupted": "Ich mir habe eine neue Jacke für den Winter gekauft.", "original": "Ich habe mir eine neue Jacke für den Winter gekauft.", "error_types": ["word_order"], "difficulty": "hard"}
+{"corrupted": "Wir haben den Abend gemütlich auf dem verbracht. Sofa", "original": "Wir haben den Abend gemütlich auf dem Sofa verbracht.", "error_types": ["word_order"], "difficulty": "hard"}
+{"corrupted": "Sie hat eine sehr gute Note in der bekommen. Mathematikprüfung", "original": "Sie hat eine sehr gute Note in der Mathematikprüfung bekommen.", "error_types": ["word_order"], "difficulty": "hard"}
+{"corrupted": "Der Hund hat den ganzen Tag im gegraben. Garten", "original": "Der Hund hat den ganzen Tag im Garten gegraben.", "error_types": ["word_order"], "difficulty": "hard"}
+{"corrupted": "Ich habe mich entschieden, einen Sprachkurs besuchen. zu", "original": "Ich habe mich entschieden, einen Sprachkurs zu besuchen.", "error_types": ["word_order"], "difficulty": "hard"}
+{"corrupted": "Das Restaurant neue in der Innenstadt soll sehr gut sein.", "original": "Das neue Restaurant in der Innenstadt soll sehr gut sein.", "error_types": ["word_order"], "difficulty": "hard"}
+{"corrupted": "Er hat mir ein sehr schönes gemacht. Kompliment", "original": "Er hat mir ein sehr schönes Kompliment gemacht.", "error_types": ["word_order"], "difficulty": "hard"}
+{"corrupted": "Die Reise nach Japan war ein Erlebnis. unvergessliches", "original": "Die Reise nach Japan war ein unvergessliches Erlebnis.", "error_types": ["word_order"], "difficulty": "hard"}
+{"corrupted": "Ich habe heute Morgen verschlafen und musste mich beeilen. sehr", "original": "Ich habe heute Morgen verschlafen und musste mich sehr beeilen.", "error_types": ["word_order"], "difficulty": "hard"}
+{"corrupted": "Wir haben ein sehr schönes Wochenende in den verbracht. Bergen", "original": "Wir haben ein sehr schönes Wochenende in den Bergen verbracht.", "error_types": ["word_order"], "difficulty": "hard"}
+{"corrupted": "Sie sich hat sehr viel Mühe mit dem Kuchen gegeben.", "original": "Sie hat sich sehr viel Mühe mit dem Kuchen gegeben.", "error_types": ["word_order"], "difficulty": "hard"}
+{"corrupted": "Der neue Film des Regisseurs hat sehr gute bekommen. Kritiken", "original": "Der neue Film des Regisseurs hat sehr gute Kritiken bekommen.", "error_types": ["word_order"], "difficulty": "hard"}
+{"corrupted": "Ich habe mir ein neues Paar gekauft. Laufschuhe", "original": "Ich habe mir ein neues Paar Laufschuhe gekauft.", "error_types": ["word_order"], "difficulty": "hard"}
+{"corrupted": "Der alte Mann geht jeden Tag im spazieren. Park", "original": "Der alte Mann geht jeden Tag im Park spazieren.", "error_types": ["word_order"], "difficulty": "hard"}
+{"corrupted": "Die Katze schläft friedlich auf dem Sofa. weichen", "original": "Die Katze schläft friedlich auf dem weichen Sofa.", "error_types": ["word_order"], "difficulty": "hard"}
+{"corrupted": "Wir gestern haben ein sehr interessantes Buch gelesen.", "original": "Wir haben gestern ein sehr interessantes Buch gelesen.", "error_types": ["word_order"], "difficulty": "hard"}
+{"corrupted": "Wenn es morgen regnet, bleiben Hause wir zu.", "original": "Wenn es morgen regnet, bleiben wir zu Hause.", "error_types": ["word_order"], "difficulty": "hard"}
+{"corrupted": "Das kleine Kind spielt mit seinem Ball. neuen", "original": "Das kleine Kind spielt mit seinem neuen Ball.", "error_types": ["word_order"], "difficulty": "hard"}
+{"corrupted": "Ich freue mich auf den Urlaub in Bergen. den", "original": "Ich freue mich auf den Urlaub in den Bergen.", "error_types": ["word_order"], "difficulty": "hard"}
+{"corrupted": "Sie hat mir einen langen geschrieben. Brief", "original": "Sie hat mir einen langen Brief geschrieben.", "error_types": ["word_order"], "difficulty": "hard"}
+{"corrupted": "Der Hund bellt laut, wenn klingelt jemand an der Tür.", "original": "Der Hund bellt laut, wenn jemand an der Tür klingelt.", "error_types": ["word_order"], "difficulty": "hard"}
+{"corrupted": "Mein Bruder arbeitet als Ingenieur in einer Firma. großen", "original": "Mein Bruder arbeitet als Ingenieur in einer großen Firma.", "error_types": ["word_order"], "difficulty": "hard"}
+{"corrupted": "Wir müssen uns beeilen, um den Zug nicht verpassen. zu", "original": "Wir müssen uns beeilen, um den Zug nicht zu verpassen.", "error_types": ["word_order"], "difficulty": "hard"}
+{"corrupted": "Das Essen in diesem Restaurant schmeckt hervorragend. wirklich", "original": "Das Essen in diesem Restaurant schmeckt wirklich hervorragend.", "error_types": ["word_order"], "difficulty": "hard"}
+{"corrupted": "Er hat vergessen, seine Hausaufgaben machen. zu", "original": "Er hat vergessen, seine Hausaufgaben zu machen.", "error_types": ["word_order"], "difficulty": "hard"}
+{"corrupted": "Die Sonne scheint hell am Himmel. blauen", "original": "Die Sonne scheint hell am blauen Himmel.", "error_types": ["word_order"], "difficulty": "hard"}
+{"corrupted": "Ich trinke jeden Morgen eine Tasse Kaffee. schwarzen", "original": "Ich trinke jeden Morgen eine Tasse schwarzen Kaffee.", "error_types": ["word_order"], "difficulty": "hard"}
+{"corrupted": "Das Auto meines Vaters ist gestern gegangen. kaputt", "original": "Das Auto meines Vaters ist gestern kaputt gegangen.", "error_types": ["word_order"], "difficulty": "hard"}
+{"corrupted": "Wir planen eine Reise nach Italien im Sommer. nächsten", "original": "Wir planen eine Reise nach Italien im nächsten Sommer.", "error_types": ["word_order"], "difficulty": "hard"}
+{"corrupted": "Die Lehrerin erklärt den Schülern die Aufgabe. schwierige", "original": "Die Lehrerin erklärt den Schülern die schwierige Aufgabe.", "error_types": ["word_order"], "difficulty": "hard"}
+{"corrupted": "Er liest gerne spannende Romane vor Einschlafen. dem", "original": "Er liest gerne spannende Romane vor dem Einschlafen.", "error_types": ["word_order"], "difficulty": "hard"}
+{"corrupted": "Das gestern Konzert Abend war ein voller Erfolg.", "original": "Das Konzert gestern Abend war ein voller Erfolg.", "error_types": ["word_order"], "difficulty": "hard"}
+{"corrupted": "Ich meine habe Schlüssel auf dem Tisch liegen lassen.", "original": "Ich habe meine Schlüssel auf dem Tisch liegen lassen.", "error_types": ["word_order"], "difficulty": "hard"}
+{"corrupted": "Die im Blumen Garten blühen in vielen bunten Farben.", "original": "Die Blumen im Garten blühen in vielen bunten Farben.", "error_types": ["word_order"], "difficulty": "hard"}
+{"corrupted": "Wir gehen am Wochenende oft im wandern. Wald", "original": "Wir gehen am Wochenende oft im Wald wandern.", "error_types": ["word_order"], "difficulty": "hard"}
+{"corrupted": "Sie spricht fließend Englisch Französisch. und", "original": "Sie spricht fließend Englisch und Französisch.", "error_types": ["word_order"], "difficulty": "hard"}
+{"corrupted": "Der Film, den wir gesehen haben, war lustig. sehr", "original": "Der Film, den wir gesehen haben, war sehr lustig.", "error_types": ["word_order"], "difficulty": "hard"}
+{"corrupted": "Ich brauche eine neue Brille, weil sehe ich schlecht.", "original": "Ich brauche eine neue Brille, weil ich schlecht sehe.", "error_types": ["word_order"], "difficulty": "hard"}
